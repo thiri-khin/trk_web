@@ -229,7 +229,7 @@ function MobileHomePage (props) {
         <div className="row">
           <div className="col text-center">
             <div className="text-light">
-              Up to $200 off in our Winter Sale
+              Up to $200 off in our Winter Sales
             </div>
             <div className="mt-1">
               <Button variant="link text-light">Learn more</Button>
