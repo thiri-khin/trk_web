@@ -1,0 +1,15 @@
+@media screen(max-width: 999px) {
+
+.show-responsive-offcanvas { display: block; }
+
+.show-responsive-menu { display: none; }
+
+}
+
+@media screen(min-width: 1000px) {
+
+.show-responsive-offcanvas { display: none; }
+
+.show-responsive-menu { display: block; }
+
+}

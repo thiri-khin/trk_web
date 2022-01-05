@@ -1,0 +1,175 @@
+.carousel-caption {
+  top: 0;
+  bottom: auto;
+}
+
+.border-top-rounded {
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.font-size {
+  font-size: 1.5em;
+}
+
+.font-size-sm {
+  font-size: 1.2em;
+}
+
+.height {
+  height: 50px;
+}
+
+.photo-background {
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  background-position: top;
+  width: 100%;
+  height: 800px;
+}
+
+.z-flip-background {
+  background-image: url(../photo/z-flip-background.jpg);
+}
+
+.s21-background {
+  background-image: url(../photo/s21-background.jpeg);
+}
+
+.z-fold3-background {
+  background-image: url(../photo/z-fold3-background.jpg);
+}
+
+.watch4-background {
+  background-image: url(../photo/watch4-background.jpg);
+}
+
+.book-background {
+  background-image: url(../photo/book-background.jpg);
+}
+
+.background-dark {
+  background-color: black;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+.for-space {
+  height: 550px;
+}
+
+.huge-font {
+  font-size: 3em;
+}
+
+.large-font {
+  font-size: 1.5em;
+}
+
+.larger-font {
+  font-size: 1.8em;
+}
+
+.neo-qled-background {
+  background-image: url(../photo/neo-qled-background.jpg);
+}
+
+.qled-background {
+  background-image: url(../photo/qled-background.jpg);
+}
+
+.lifestyle-background {
+  background-image: url(../photo/lifestyle-background.png);
+}
+
+.crystal-background {
+  background-image: url(../photo/crystal-background.jpg);
+}
+
+.soundbar-background {
+  background-image: url(../photo/soundbar-background.jpg);
+}
+
+.jet-bot-background {
+  background-image: url(../photo/jet-bot-background.jpg);
+}
+
+.bespoke-background {
+  background-image: url(../photo/bespoke-background.jpg);
+}
+
+.airdresser-background {
+  background-image: url(../photo/airdresser-background.jpg);
+}
+
+.healthy-home-background {
+  background-image: url(../photo/healthy-home-background.jpg);
+}
+
+.border-rounded {
+  border-radius: 20px;
+}
+
+.black-line {
+  border: 1px solid #0c0d0c;
+  border-radius: 2px;
+}
+
+.vertical-middle {
+  margin-top: 130px;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.dot-option-border {
+  height: 40px;
+  border: 1px solid #0c0d0c;
+  border-radius: 30px;
+}
+
+@media screen and (min-width: 771px) {
+.dot-option {
+  margin-top: 14px;
+  margin-left: 30px;
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  border: 1px solid #0c0d0c;
+  border-radius: 50%;
+  cursor: pointer;
+}
+}
+
+@media screen and (max-width: 770px) {
+.dot-option {
+  margin-top: 14px;
+  margin-left: 20px;
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  border: 1px solid #0c0d0c;
+  border-radius: 50%;
+  cursor: pointer;
+}
+}
+
+@media screen and (max-width: 900px) {
+
+.show-responsive-explore { display: block; }
+
+.show-explore { display: none; }
+
+}
+
+@media screen and (min-width: 901px) {
+
+.show-responsive-explore { display: none; }
+
+.show-explore { display: block; }
+
+}
