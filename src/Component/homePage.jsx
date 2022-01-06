@@ -31,6 +31,10 @@ import Mornitor from '../photo/mornitor.png';
 import HeadPhone from '../photo/headphone.png';
 import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
+import MobileHomePage from './mobileHomePage.jsx';
+import TvavHomePage from './tvavHomePage.jsx';
+import HomeAHomePage from './homeAHomePage.jsx';
+import ExploreHomePage from './exploreHomePage.jsx';
 import '../css/homepage.css';
 import '../css/docs.css';
 
@@ -1044,6 +1048,10 @@ function HomePage (props) {
         </div>
       </div>
       : null }
+      <MobileHomePage />
+      <TvavHomePage />
+      <HomeAHomePage />
+      <ExploreHomePage />
     </div>
   );
 }

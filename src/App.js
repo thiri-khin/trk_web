@@ -11,11 +11,6 @@ function App(props) {
   return (
     <div className="container-fluid">
       <Header />
-      <HomePage />
-      <MobileHomePage />
-      <TvavHomePage />
-      <HomeAHomePage />
-      <ExploreHomePage />
     </div>
   );
 }

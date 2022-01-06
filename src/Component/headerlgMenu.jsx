@@ -6,9 +6,17 @@ import {
   faShoppingCart,
   faChevronDown,
   faChevronRight,
-  faTimes } from '@fortawesome/free-solid-svg-icons';
+  faTimes
+} from '@fortawesome/free-solid-svg-icons';
 import { 
-  faUser } from '@fortawesome/free-regular-svg-icons';
+  faUser
+} from '@fortawesome/free-regular-svg-icons';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from 'react-router-dom';
 import logo from '../photo/Font-Samsung-Logo.jpg';
 import ZFlip3 from '../photo/z-flip3-bespoke-edition.jpg';
 import NeoQLED from '../photo/neo-q-led-menu.jpg';
@@ -21,6 +29,8 @@ import Curated from '../photo/curated-menu.JPG';
 import Explore from '../photo/explore-menu.jpg';
 import Support from '../photo/support-menu.jpg';
 import ForBusiness from '../photo/for-business-menu.jpeg';
+import GalaxyBespoke from './galaxyBespoke.jsx';
+import HomePage from './homePage.jsx';
 import '../css/header.css';
 
 function HeaderlgMenu (props) {
@@ -30,49 +40,120 @@ function HeaderlgMenu (props) {
       child_item_num: 9,
       item: 'Featured',
       show_child_items: true,
-      child_items: ['Galaxy Bespoke', 'Galaxy Z Flip3 5G', 'Galaxy Z Fold3 5G', 'Galaxy S21 Ultra 5G', 'Galaxy S21| S21 + 5G', 'Galaxy A52s 5G', 'Galaxy Watch4', 'Galaxy Watch4 Classic', 'Galaxy Buds2']
+      child_items: [
+        { name: 'Galaxy Bespoke', path: '/mobile/featured/galaxy-bespoke' },
+        { name: 'Galaxy Z Flip3 5G', path: '/mobile/featured/galaxy-z-flip3-5g' },
+        { name: 'Galaxy Z Fold3 5G', path: '/mobile/featured/galaxy-z-fold3-5g'},
+        { name: 'Galaxy S21 Ultra 5G', path: '/mobile/featured/galaxy-s21-ultra-5g'},
+        { name: 'Galaxy S21| S21 + 5G', path: '/mobile/featured/galaxy-s21-5g'},
+        { name: 'Galaxy A52s 5G', path: '/mobile/featured/galaxy-a52s-5g'},
+        { name: 'Galaxy Watch4', path: '/mobile/featured/galaxy-watch4'},
+        { name: 'Galaxy Watch4 Classic', path: '/mobile/featured/galaxy-watch4-classic'},
+        { name: 'Galaxy Buds2', path: '/mobile/featured/galaxy-buds'}
+      ]
     }, 
     {
       child_item_num: 10,
       item: 'Smartphones',
       show_child_items: false,
-      child_items: ['Overview', 'Galaxy Z', 'Galaxy S', 'Galaxy A', 'Galaxy M', 'Phone Contracts', 'Accessories', 'See All', 'Compare', 'Help Me Choose']
+      child_items: [
+        { name: 'Overview', path: '/mobile/smartphones/overview' },
+        { name: 'Galaxy Z', path: '/mobile/smartphones/galaxy-z' },
+        { name: 'Galaxy S', path: '/mobile/smartphones/galaxy-s' },
+        { name: 'Galaxy A', path: '/mobile/smartphones/galaxy-a' },
+        { name: 'Galaxy M', path: '/mobile/smartphones/galaxy-m' },
+        { name: 'Phone Contracts', path: '/mobile/smartphones/phone-contracts' },
+        { name: 'Accessories', path: '/mobile/smartphones/accessories' },
+        { name: 'See All', path: '/mobile/smartphones/see-all' },
+        { name: 'Compare', path: '/mobile/smartphones/compare' },
+        { name: 'Help Me Choose', path: '/mobile/smartphones/help-me-choose'}
+      ]
     }, 
     {
       child_item_num: 7,
       item: 'Tablets',
       show_child_items: false,
-      child_items: ['Overview', 'Galaxy Tab S', 'Galaxy Tab A', 'Galaxy Book', 'Accessories', 'See All', 'Compare']
+      child_items: [
+        { name: 'Overview', path: '/mobile/tablets/overview' },
+        { name: 'Galaxy Tab S', path: '/mobile/tablets/galaxy-tab-s' },
+        { name: 'Galaxy Tab A', path: '/mobile/tablets/galaxy-tab-a' },
+        { name: 'Galaxy Book', path: '/mobile/tablets/galaxy-book' },
+        { name: 'Accessories', path: '/mobile/tablets/accessories' },
+        { name: 'See All', path: '/mobile/tablets/see-all' },
+        { name: 'Compare', path: '/mobile/tablets/compare' }
+      ]
     }, 
     {
       child_item_num: 9,
       item: 'Galaxy Book',
       show_child_items: false,
-      child_items: ['Overview', 'Galaxy Book Pro 360', 'Galaxy Book Pro', 'Galaxy Book', 'Galaxy Book Go', 'Samsung Chromebook', 'Accessories', 'See All', 'Compare']
+      child_items: [
+        { name: 'Overview', path: '/mobile/galaxy-book/overview' },
+        { name: 'Galaxy Book Pro 360', path: '/mobile/galaxy-book/galaxy-book-pro360' },
+        { name: 'Galaxy Book Pro', path: '/mobile/galaxy-book/galaxy-book-pro' },
+        { name: 'Galaxy Book', path: '/mobile/galaxy-book/galaxy-book' },
+        { name: 'Galaxy Book Go', path: '/mobile/galaxy-book/galaxy-book-go' },
+        { name: 'Samsung Chromebook', path: '/mobile/galaxy-book/samsung-chromebook' },
+        { name: 'Accessories', path: '/mobile/galaxy-book/accessories' },
+        { name: 'See All', path: '/mobile/galaxy-book/see-all' },
+        { name: 'Compare', path: '/mobile/galaxy-book/compare' }
+      ]
     }, 
     {
       child_item_num: 6,
       item: 'Watches',
       show_child_items: false,
-      child_items: ['Overview', 'Galaxy Watch', 'Galaxy Watch4 Bespoke Studio', 'Accessories', 'See All', 'Compare']
+      child_items: [
+        { name: 'Overview', path: '/mobile/watches/overview' },
+        { name: 'Galaxy Watch', path: '/mobile/watches/galaxy-watch' },
+        { name: 'Galaxy Watch4 Bespoke Studio', path: '/mobile/watches/galaxy-watch4-bespoke-studio' },
+        { name: 'Accessories', path: '/mobile/watches/accessories' },
+        { name: 'See All', path: '/mobile/watches/see-all' },
+        { name: 'Compare', path: '/mobile/watches/compare' }
+      ]
     }, 
     {
       child_item_num: 5,
       item: 'Galaxy Buds',
       show_child_items: false,
-      child_items: ['Overview', 'Galaxy Buds', 'AKG Headphones', 'See All', 'Compare']
+      child_items: [
+        { name: 'Overview', path: '/mobile/galaxy-buds/overview' },
+        { name: 'Galaxy Buds', path: '/mobile/galaxy-buds/galaxy-buds' },
+        { name: 'AKG Headphones', path: '/mobile/galaxy-buds/akg-headphones' },
+        { name: 'See All', path: '/mobile/galaxy-buds/see-all' },
+        { name: 'Compare', path: '/mobile/galaxy-buds/compare' }
+      ]
     }, 
     {
       child_item_num: 6,
       item: 'Accessories',
       show_child_items: false,
-      child_items: ['Overview', 'Smartphones Accessories', 'Tablets Accessories', 'Galaxy Book Accessories', 'Watches Accessories', 'See All']
+      child_items: [
+        { name: 'Overview', path: '/mobile/accessories/overview' },
+        { name: 'Smartphones Accessories', path: '/mobile/accessories/smartphones-accessories' },
+        { name: 'Tablets Accessories', path: '/mobile/accessories/tablets-accessories' },
+        { name: 'Galaxy Book Accessories', path: '/mobile/accessories/galaxy-book-accessories' },
+        { name: 'Watches Accessories', path: '/mobile/accessories/watches-accessories' },
+        { name: 'See All', path: '/mobile/accessories/see-all' }
+      ]
     }, 
     {
       child_item_num: 11,
       item: 'One UI',
       show_child_items: false,
-      child_items: ['One UI Overview', 'App & Services Overview', 'Galaxy Store', 'Bixby', 'Samsung Pay', 'Samsung Health', 'Samsung Health Monitor', 'Samsung DeX', 'Samsung Members', 'SmartThings', 'Smart Switch']
+      child_items: [
+        { name: 'One UI Overview', path: '/mobile/one-ui/one-ui-overview' },
+        { name: 'App & Services Overview', path: '/mobile/one-ui/app-services-overview' },
+        { name: 'Galaxy Store', path: '/mobile/one-ui/galaxy-store' },
+        { name: 'Bixby', path: '/mobile/one-ui/bixby' },
+        { name: 'Samsung Pay', path: '/mobile/one-ui/samsung-pay' },
+        { name: 'Samsung Health', path: '/mobile/one-ui/samsung-health' },
+        { name: 'Samsung Health Monitor', path: '/mobile/one-ui/samsung-health-monitor'},
+        { name: 'Samsung DeX', path: '/mobile/one-ui/samsung-dex' },
+        { name: 'Samsung Members', path: '/mobile/one-ui/samsung-members' },
+        { name: 'SmartThings', path: '/mobile/one-ui/smartthings' },
+        { name: 'Smart Switch', path: '/mobile/one-ui/smart-switch' }
+      ]
     }, 
     {
       child_item_num: 0,
@@ -527,49 +608,120 @@ function HeaderlgMenu (props) {
             child_item_num: 9,
             item: 'Featured',
             show_child_items: true,
-            child_items: ['Galaxy Bespoke', 'Galaxy Z Flip3 5G', 'Galaxy Z Fold3 5G', 'Galaxy S21 Ultra 5G', 'Galaxy S21| S21 + 5G', 'Galaxy A52s 5G', 'Galaxy Watch4', 'Galaxy Watch4 Classic', 'Galaxy Buds2']
+            child_items: [
+              { name: 'Galaxy Bespoke', path: '/galaxy-bespoke' },
+              { name: 'Galaxy Z Flip3 5G', path: '/galaxy-z-flip3-5g' },
+              { name: 'Galaxy Z Fold3 5G', path: '/galaxy-z-fold3-5g'},
+              { name: 'Galaxy S21 Ultra 5G', path: '/galaxy-s21-ultra-5g'},
+              { name: 'Galaxy S21| S21 + 5G', path: '/galaxy-s21-5g'},
+              { name: 'Galaxy A52s 5G', path: '/galaxy-a52s-5g'},
+              { name: 'Galaxy Watch4', path: 'galaxy-watch4'},
+              { name: 'Galaxy Watch4 Classic', path: '/galaxy-watch4-classic'},
+              { name: 'Galaxy Buds2', path: '/galaxy-buds'}
+            ]
           }, 
           {
             child_item_num: 10,
             item: 'Smartphones',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Z', 'Galaxy S', 'Galaxy A', 'Galaxy M', 'Phone Contracts', 'Accessories', 'See All', 'Compare', 'Help Me Choose']
+            child_items: [
+              { name: 'Overview', path: '/mobile/smartphones/overview' },
+              { name: 'Galaxy Z', path: '/mobile/smartphones/galaxy-z' },
+              { name: 'Galaxy S', path: '/mobile/smartphones/galaxy-s' },
+              { name: 'Galaxy A', path: '/mobile/smartphones/galaxy-a' },
+              { name: 'Galaxy M', path: '/mobile/smartphones/galaxy-m' },
+              { name: 'Phone Contracts', path: '/mobile/smartphones/phone-contracts' },
+              { name: 'Accessories', path: '/mobile/smartphones/accessories' },
+              { name: 'See All', path: '/mobile/smartphones/see-all' },
+              { name: 'Compare', path: '/mobile/smartphones/compare' },
+              { name: 'Help Me Choose', path: '/mobile/smartphones/help-me-choose'}
+            ]
           }, 
           {
             child_item_num: 7,
             item: 'Tablets',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Tab S', 'Galaxy Tab A', 'Galaxy Book', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/tablets/overview' },
+              { name: 'Galaxy Tab S', path: '/mobile/tablets/galaxy-tab-s' },
+              { name: 'Galaxy Tab A', path: '/mobile/tablets/galaxy-tab-a' },
+              { name: 'Galaxy Book', path: '/mobile/tablets/galaxy-book' },
+              { name: 'Accessories', path: '/mobile/tablets/accessories' },
+              { name: 'See All', path: '/mobile/tablets/see-all' },
+              { name: 'Compare', path: '/mobile/tablets/compare' }
+            ]
           }, 
           {
             child_item_num: 9,
             item: 'Galaxy Book',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Book Pro 360', 'Galaxy Book Pro', 'Galaxy Book', 'Galaxy Book Go', 'Samsung Chromebook', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/galaxy-book/overview' },
+              { name: 'Galaxy Book Pro 360', path: '/mobile/galaxy-book/galaxy-book-pro360' },
+              { name: 'Galaxy Book Pro', path: '/mobile/galaxy-book/galaxy-book-pro' },
+              { name: 'Galaxy Book', path: '/mobile/galaxy-book/galaxy-book' },
+              { name: 'Galaxy Book Go', path: '/mobile/galaxy-book/galaxy-book-go' },
+              { name: 'Samsung Chromebook', path: '/mobile/galaxy-book/samsung-chromebook' },
+              { name: 'Accessories', path: '/mobile/galaxy-book/accessories' },
+              { name: 'See All', path: '/mobile/galaxy-book/see-all' },
+              { name: 'Compare', path: '/mobile/galaxy-book/compare' }
+            ]
           }, 
           {
             child_item_num: 6,
             item: 'Watches',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Watch', 'Galaxy Watch4 Bespoke Studio', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/watches/overview' },
+              { name: 'Galaxy Watch', path: '/mobile/watches/galaxy-watch' },
+              { name: 'Galaxy Watch4 Bespoke Studio', path: '/mobile/watches/galaxy-watch4-bespoke-studio' },
+              { name: 'Accessories', path: '/mobile/watches/accessories' },
+              { name: 'See All', path: '/mobile/watches/see-all' },
+              { name: 'Compare', path: '/mobile/watches/compare' }
+            ]
           }, 
           {
             child_item_num: 5,
             item: 'Galaxy Buds',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Buds', 'AKG Headphones', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/galaxy-buds/overview' },
+              { name: 'Galaxy Buds', path: '/mobile/galaxy-buds/galaxy-buds' },
+              { name: 'AKG Headphones', path: '/mobile/galaxy-buds/akg-headphones' },
+              { name: 'See All', path: '/mobile/galaxy-buds/see-all' },
+              { name: 'Compare', path: '/mobile/galaxy-buds/compare' }
+            ]
           }, 
           {
             child_item_num: 6,
             item: 'Accessories',
             show_child_items: false,
-            child_items: ['Overview', 'Smartphones Accessories', 'Tablets Accessories', 'Galaxy Book Accessories', 'Watches Accessories', 'See All']
+            child_items: [
+              { name: 'Overview', path: '/mobile/accessories/overview' },
+              { name: 'Smartphones Accessories', path: '/mobile/accessories/smartphones-accessories' },
+              { name: 'Tablets Accessories', path: '/mobile/accessories/tablets-accessories' },
+              { name: 'Galaxy Book Accessories', path: '/mobile/accessories/galaxy-book-accessories' },
+              { name: 'Watches Accessories', path: '/mobile/accessories/watches-accessories' },
+              { name: 'See All', path: '/mobile/accessories/see-all' }
+            ]
           }, 
           {
             child_item_num: 11,
             item: 'One UI',
             show_child_items: false,
-            child_items: ['One UI Overview', 'App & Services Overview', 'Galaxy Store', 'Bixby', 'Samsung Pay', 'Samsung Health', 'Samsung Health Monitor', 'Samsung DeX', 'Samsung Members', 'SmartThings', 'Smart Switch']
+            child_items: [
+              { name: 'One UI Overview', path: '/mobile/one-ui/one-ui-overview' },
+              { name: 'App & Services Overview', path: '/mobile/one-ui/app-services-overview' },
+              { name: 'Galaxy Store', path: '/mobile/one-ui/galaxy-store' },
+              { name: 'Bixby', path: '/mobile/one-ui/bixby' },
+              { name: 'Samsung Pay', path: '/mobile/one-ui/samsung-pay' },
+              { name: 'Samsung Health', path: '/mobile/one-ui/samsung-health' },
+              { name: 'Samsung Health Monitor', path: '/mobile/one-ui/samsung-health-monitor'},
+              { name: 'Samsung DeX', path: '/mobile/one-ui/samsung-dex' },
+              { name: 'Samsung Members', path: '/mobile/one-ui/samsung-members' },
+              { name: 'SmartThings', path: '/mobile/one-ui/smartthings' },
+              { name: 'Smart Switch', path: '/mobile/one-ui/smart-switch' }
+            ]
           }, 
           {
             child_item_num: 0,
@@ -590,49 +742,120 @@ function HeaderlgMenu (props) {
             child_item_num: 9,
             item: 'Featured',
             show_child_items: false,
-            child_items: ['Galaxy Bespoke', 'Galaxy Z Flip3 5G', 'Galaxy Z Fold3 5G', 'Galaxy S21 Ultra 5G', 'Galaxy S21| S21 + 5G', 'Galaxy A52s 5G', 'Galaxy Watch4', 'Galaxy Watch4 Classic', 'Galaxy Buds2']
+            child_items: [
+              { name: 'Galaxy Bespoke', path: '/galaxy-bespoke' },
+              { name: 'Galaxy Z Flip3 5G', path: '/galaxy-z-flip3-5g' },
+              { name: 'Galaxy Z Fold3 5G', path: '/galaxy-z-fold3-5g'},
+              { name: 'Galaxy S21 Ultra 5G', path: '/galaxy-s21-ultra-5g'},
+              { name: 'Galaxy S21| S21 + 5G', path: '/galaxy-s21-5g'},
+              { name: 'Galaxy A52s 5G', path: '/galaxy-a52s-5g'},
+              { name: 'Galaxy Watch4', path: 'galaxy-watch4'},
+              { name: 'Galaxy Watch4 Classic', path: '/galaxy-watch4-classic'},
+              { name: 'Galaxy Buds2', path: '/galaxy-buds'}
+            ]
           }, 
           {
             child_item_num: 10,
             item: 'Smartphones',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Z', 'Galaxy S', 'Galaxy A', 'Galaxy M', 'Phone Contracts', 'Accessories', 'See All', 'Compare', 'Help Me Choose']
+            child_items: [
+              { name: 'Overview', path: '/mobile/smartphones/overview' },
+              { name: 'Galaxy Z', path: '/mobile/smartphones/galaxy-z' },
+              { name: 'Galaxy S', path: '/mobile/smartphones/galaxy-s' },
+              { name: 'Galaxy A', path: '/mobile/smartphones/galaxy-a' },
+              { name: 'Galaxy M', path: '/mobile/smartphones/galaxy-m' },
+              { name: 'Phone Contracts', path: '/mobile/smartphones/phone-contracts' },
+              { name: 'Accessories', path: '/mobile/smartphones/accessories' },
+              { name: 'See All', path: '/mobile/smartphones/see-all' },
+              { name: 'Compare', path: '/mobile/smartphones/compare' },
+              { name: 'Help Me Choose', path: '/mobile/smartphones/help-me-choose'}
+            ]
           }, 
           {
             child_item_num: 7,
             item: 'Tablets',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Tab S', 'Galaxy Tab A', 'Galaxy Book', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/tablets/overview' },
+              { name: 'Galaxy Tab S', path: '/mobile/tablets/galaxy-tab-s' },
+              { name: 'Galaxy Tab A', path: '/mobile/tablets/galaxy-tab-a' },
+              { name: 'Galaxy Book', path: '/mobile/tablets/galaxy-book' },
+              { name: 'Accessories', path: '/mobile/tablets/accessories' },
+              { name: 'See All', path: '/mobile/tablets/see-all' },
+              { name: 'Compare', path: '/mobile/tablets/compare' }
+            ]
           }, 
           {
             child_item_num: 9,
             item: 'Galaxy Book',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Book Pro 360', 'Galaxy Book Pro', 'Galaxy Book', 'Galaxy Book Go', 'Samsung Chromebook', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/galaxy-book/overview' },
+              { name: 'Galaxy Book Pro 360', path: '/mobile/galaxy-book/galaxy-book-pro360' },
+              { name: 'Galaxy Book Pro', path: '/mobile/galaxy-book/galaxy-book-pro' },
+              { name: 'Galaxy Book', path: '/mobile/galaxy-book/galaxy-book' },
+              { name: 'Galaxy Book Go', path: '/mobile/galaxy-book/galaxy-book-go' },
+              { name: 'Samsung Chromebook', path: '/mobile/galaxy-book/samsung-chromebook' },
+              { name: 'Accessories', path: '/mobile/galaxy-book/accessories' },
+              { name: 'See All', path: '/mobile/galaxy-book/see-all' },
+              { name: 'Compare', path: '/mobile/galaxy-book/compare' }
+            ]
           }, 
           {
             child_item_num: 6,
             item: 'Watches',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Watch', 'Galaxy Watch4 Bespoke Studio', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/watches/overview' },
+              { name: 'Galaxy Watch', path: '/mobile/watches/galaxy-watch' },
+              { name: 'Galaxy Watch4 Bespoke Studio', path: '/mobile/watches/galaxy-watch4-bespoke-studio' },
+              { name: 'Accessories', path: '/mobile/watches/accessories' },
+              { name: 'See All', path: '/mobile/watches/see-all' },
+              { name: 'Compare', path: '/mobile/watches/compare' }
+            ]
           }, 
           {
             child_item_num: 5,
             item: 'Galaxy Buds',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Buds', 'AKG Headphones', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/galaxy-buds/overview' },
+              { name: 'Galaxy Buds', path: '/mobile/galaxy-buds/galaxy-buds' },
+              { name: 'AKG Headphones', path: '/mobile/galaxy-buds/akg-headphones' },
+              { name: 'See All', path: '/mobile/galaxy-buds/see-all' },
+              { name: 'Compare', path: '/mobile/galaxy-buds/compare' }
+            ]
           }, 
           {
             child_item_num: 6,
             item: 'Accessories',
             show_child_items: false,
-            child_items: ['Overview', 'Smartphones Accessories', 'Tablets Accessories', 'Galaxy Book Accessories', 'Watches Accessories', 'See All']
+            child_items: [
+              { name: 'Overview', path: '/mobile/accessories/overview' },
+              { name: 'Smartphones Accessories', path: '/mobile/accessories/smartphones-accessories' },
+              { name: 'Tablets Accessories', path: '/mobile/accessories/tablets-accessories' },
+              { name: 'Galaxy Book Accessories', path: '/mobile/accessories/galaxy-book-accessories' },
+              { name: 'Watches Accessories', path: '/mobile/accessories/watches-accessories' },
+              { name: 'See All', path: '/mobile/accessories/see-all' }
+            ]
           }, 
           {
             child_item_num: 11,
             item: 'One UI',
             show_child_items: false,
-            child_items: ['One UI Overview', 'App & Services Overview', 'Galaxy Store', 'Bixby', 'Samsung Pay', 'Samsung Health', 'Samsung Health Monitor', 'Samsung DeX', 'Samsung Members', 'SmartThings', 'Smart Switch']
+            child_items: [
+              { name: 'One UI Overview', path: '/mobile/one-ui/one-ui-overview' },
+              { name: 'App & Services Overview', path: '/mobile/one-ui/app-services-overview' },
+              { name: 'Galaxy Store', path: '/mobile/one-ui/galaxy-store' },
+              { name: 'Bixby', path: '/mobile/one-ui/bixby' },
+              { name: 'Samsung Pay', path: '/mobile/one-ui/samsung-pay' },
+              { name: 'Samsung Health', path: '/mobile/one-ui/samsung-health' },
+              { name: 'Samsung Health Monitor', path: '/mobile/one-ui/samsung-health-monitor'},
+              { name: 'Samsung DeX', path: '/mobile/one-ui/samsung-dex' },
+              { name: 'Samsung Members', path: '/mobile/one-ui/samsung-members' },
+              { name: 'SmartThings', path: '/mobile/one-ui/smartthings' },
+              { name: 'Smart Switch', path: '/mobile/one-ui/smart-switch' }
+            ]
           }, 
           {
             child_item_num: 0,
@@ -655,49 +878,120 @@ function HeaderlgMenu (props) {
             child_item_num: 9,
             item: 'Featured',
             show_child_items: false,
-            child_items: ['Galaxy Bespoke', 'Galaxy Z Flip3 5G', 'Galaxy Z Fold3 5G', 'Galaxy S21 Ultra 5G', 'Galaxy S21| S21 + 5G', 'Galaxy A52s 5G', 'Galaxy Watch4', 'Galaxy Watch4 Classic', 'Galaxy Buds2']
+            child_items: [
+              { name: 'Galaxy Bespoke', path: '/galaxy-bespoke' },
+              { name: 'Galaxy Z Flip3 5G', path: '/galaxy-z-flip3-5g' },
+              { name: 'Galaxy Z Fold3 5G', path: '/galaxy-z-fold3-5g'},
+              { name: 'Galaxy S21 Ultra 5G', path: '/galaxy-s21-ultra-5g'},
+              { name: 'Galaxy S21| S21 + 5G', path: '/galaxy-s21-5g'},
+              { name: 'Galaxy A52s 5G', path: '/galaxy-a52s-5g'},
+              { name: 'Galaxy Watch4', path: 'galaxy-watch4'},
+              { name: 'Galaxy Watch4 Classic', path: '/galaxy-watch4-classic'},
+              { name: 'Galaxy Buds2', path: '/galaxy-buds'}
+            ]
           }, 
           {
             child_item_num: 10,
             item: 'Smartphones',
             show_child_items: true,
-            child_items: ['Overview', 'Galaxy Z', 'Galaxy S', 'Galaxy A', 'Galaxy M', 'Phone Contracts', 'Accessories', 'See All', 'Compare', 'Help Me Choose']
+            child_items: [
+              { name: 'Overview', path: '/mobile/smartphones/overview' },
+              { name: 'Galaxy Z', path: '/mobile/smartphones/galaxy-z' },
+              { name: 'Galaxy S', path: '/mobile/smartphones/galaxy-s' },
+              { name: 'Galaxy A', path: '/mobile/smartphones/galaxy-a' },
+              { name: 'Galaxy M', path: '/mobile/smartphones/galaxy-m' },
+              { name: 'Phone Contracts', path: '/mobile/smartphones/phone-contracts' },
+              { name: 'Accessories', path: '/mobile/smartphones/accessories' },
+              { name: 'See All', path: '/mobile/smartphones/see-all' },
+              { name: 'Compare', path: '/mobile/smartphones/compare' },
+              { name: 'Help Me Choose', path: '/mobile/smartphones/help-me-choose'}
+            ]
           }, 
           {
             child_item_num: 7,
             item: 'Tablets',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Tab S', 'Galaxy Tab A', 'Galaxy Book', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/tablets/overview' },
+              { name: 'Galaxy Tab S', path: '/mobile/tablets/galaxy-tab-s' },
+              { name: 'Galaxy Tab A', path: '/mobile/tablets/galaxy-tab-a' },
+              { name: 'Galaxy Book', path: '/mobile/tablets/galaxy-book' },
+              { name: 'Accessories', path: '/mobile/tablets/accessories' },
+              { name: 'See All', path: '/mobile/tablets/see-all' },
+              { name: 'Compare', path: '/mobile/tablets/compare' }
+            ]
           }, 
           {
             child_item_num: 9,
             item: 'Galaxy Book',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Book Pro 360', 'Galaxy Book Pro', 'Galaxy Book', 'Galaxy Book Go', 'Samsung Chromebook', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/galaxy-book/overview' },
+              { name: 'Galaxy Book Pro 360', path: '/mobile/galaxy-book/galaxy-book-pro360' },
+              { name: 'Galaxy Book Pro', path: '/mobile/galaxy-book/galaxy-book-pro' },
+              { name: 'Galaxy Book', path: '/mobile/galaxy-book/galaxy-book' },
+              { name: 'Galaxy Book Go', path: '/mobile/galaxy-book/galaxy-book-go' },
+              { name: 'Samsung Chromebook', path: '/mobile/galaxy-book/samsung-chromebook' },
+              { name: 'Accessories', path: '/mobile/galaxy-book/accessories' },
+              { name: 'See All', path: '/mobile/galaxy-book/see-all' },
+              { name: 'Compare', path: '/mobile/galaxy-book/compare' }
+            ]
           }, 
           {
             child_item_num: 6,
             item: 'Watches',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Watch', 'Galaxy Watch4 Bespoke Studio', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/watches/overview' },
+              { name: 'Galaxy Watch', path: '/mobile/watches/galaxy-watch' },
+              { name: 'Galaxy Watch4 Bespoke Studio', path: '/mobile/watches/galaxy-watch4-bespoke-studio' },
+              { name: 'Accessories', path: '/mobile/watches/accessories' },
+              { name: 'See All', path: '/mobile/watches/see-all' },
+              { name: 'Compare', path: '/mobile/watches/compare' }
+            ]
           }, 
           {
             child_item_num: 5,
             item: 'Galaxy Buds',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Buds', 'AKG Headphones', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/galaxy-buds/overview' },
+              { name: 'Galaxy Buds', path: '/mobile/galaxy-buds/galaxy-buds' },
+              { name: 'AKG Headphones', path: '/mobile/galaxy-buds/akg-headphones' },
+              { name: 'See All', path: '/mobile/galaxy-buds/see-all' },
+              { name: 'Compare', path: '/mobile/galaxy-buds/compare' }
+            ]
           }, 
           {
             child_item_num: 6,
             item: 'Accessories',
             show_child_items: false,
-            child_items: ['Overview', 'Smartphones Accessories', 'Tablets Accessories', 'Galaxy Book Accessories', 'Watches Accessories', 'See All']
+            child_items: [
+              { name: 'Overview', path: '/mobile/accessories/overview' },
+              { name: 'Smartphones Accessories', path: '/mobile/accessories/smartphones-accessories' },
+              { name: 'Tablets Accessories', path: '/mobile/accessories/tablets-accessories' },
+              { name: 'Galaxy Book Accessories', path: '/mobile/accessories/galaxy-book-accessories' },
+              { name: 'Watches Accessories', path: '/mobile/accessories/watches-accessories' },
+              { name: 'See All', path: '/mobile/accessories/see-all' }
+            ]
           }, 
           {
             child_item_num: 11,
             item: 'One UI',
             show_child_items: false,
-            child_items: ['One UI Overview', 'App & Services Overview', 'Galaxy Store', 'Bixby', 'Samsung Pay', 'Samsung Health', 'Samsung Health Monitor', 'Samsung DeX', 'Samsung Members', 'SmartThings', 'Smart Switch']
+            child_items: [
+              { name: 'One UI Overview', path: '/mobile/one-ui/one-ui-overview' },
+              { name: 'App & Services Overview', path: '/mobile/one-ui/app-services-overview' },
+              { name: 'Galaxy Store', path: '/mobile/one-ui/galaxy-store' },
+              { name: 'Bixby', path: '/mobile/one-ui/bixby' },
+              { name: 'Samsung Pay', path: '/mobile/one-ui/samsung-pay' },
+              { name: 'Samsung Health', path: '/mobile/one-ui/samsung-health' },
+              { name: 'Samsung Health Monitor', path: '/mobile/one-ui/samsung-health-monitor'},
+              { name: 'Samsung DeX', path: '/mobile/one-ui/samsung-dex' },
+              { name: 'Samsung Members', path: '/mobile/one-ui/samsung-members' },
+              { name: 'SmartThings', path: '/mobile/one-ui/smartthings' },
+              { name: 'Smart Switch', path: '/mobile/one-ui/smart-switch' }
+            ]
           }, 
           {
             child_item_num: 0,
@@ -718,49 +1012,120 @@ function HeaderlgMenu (props) {
             child_item_num: 9,
             item: 'Featured',
             show_child_items: false,
-            child_items: ['Galaxy Bespoke', 'Galaxy Z Flip3 5G', 'Galaxy Z Fold3 5G', 'Galaxy S21 Ultra 5G', 'Galaxy S21| S21 + 5G', 'Galaxy A52s 5G', 'Galaxy Watch4', 'Galaxy Watch4 Classic', 'Galaxy Buds2']
+            child_items: [
+              { name: 'Galaxy Bespoke', path: '/galaxy-bespoke' },
+              { name: 'Galaxy Z Flip3 5G', path: '/galaxy-z-flip3-5g' },
+              { name: 'Galaxy Z Fold3 5G', path: '/galaxy-z-fold3-5g'},
+              { name: 'Galaxy S21 Ultra 5G', path: '/galaxy-s21-ultra-5g'},
+              { name: 'Galaxy S21| S21 + 5G', path: '/galaxy-s21-5g'},
+              { name: 'Galaxy A52s 5G', path: '/galaxy-a52s-5g'},
+              { name: 'Galaxy Watch4', path: 'galaxy-watch4'},
+              { name: 'Galaxy Watch4 Classic', path: '/galaxy-watch4-classic'},
+              { name: 'Galaxy Buds2', path: '/galaxy-buds'}
+            ]
           }, 
           {
             child_item_num: 10,
             item: 'Smartphones',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Z', 'Galaxy S', 'Galaxy A', 'Galaxy M', 'Phone Contracts', 'Accessories', 'See All', 'Compare', 'Help Me Choose']
+            child_items: [
+              { name: 'Overview', path: '/mobile/smartphones/overview' },
+              { name: 'Galaxy Z', path: '/mobile/smartphones/galaxy-z' },
+              { name: 'Galaxy S', path: '/mobile/smartphones/galaxy-s' },
+              { name: 'Galaxy A', path: '/mobile/smartphones/galaxy-a' },
+              { name: 'Galaxy M', path: '/mobile/smartphones/galaxy-m' },
+              { name: 'Phone Contracts', path: '/mobile/smartphones/phone-contracts' },
+              { name: 'Accessories', path: '/mobile/smartphones/accessories' },
+              { name: 'See All', path: '/mobile/smartphones/see-all' },
+              { name: 'Compare', path: '/mobile/smartphones/compare' },
+              { name: 'Help Me Choose', path: '/mobile/smartphones/help-me-choose'}
+            ]
           }, 
           {
             child_item_num: 7,
             item: 'Tablets',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Tab S', 'Galaxy Tab A', 'Galaxy Book', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/tablets/overview' },
+              { name: 'Galaxy Tab S', path: '/mobile/tablets/galaxy-tab-s' },
+              { name: 'Galaxy Tab A', path: '/mobile/tablets/galaxy-tab-a' },
+              { name: 'Galaxy Book', path: '/mobile/tablets/galaxy-book' },
+              { name: 'Accessories', path: '/mobile/tablets/accessories' },
+              { name: 'See All', path: '/mobile/tablets/see-all' },
+              { name: 'Compare', path: '/mobile/tablets/compare' }
+            ]
           }, 
           {
             child_item_num: 9,
             item: 'Galaxy Book',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Book Pro 360', 'Galaxy Book Pro', 'Galaxy Book', 'Galaxy Book Go', 'Samsung Chromebook', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/galaxy-book/overview' },
+              { name: 'Galaxy Book Pro 360', path: '/mobile/galaxy-book/galaxy-book-pro360' },
+              { name: 'Galaxy Book Pro', path: '/mobile/galaxy-book/galaxy-book-pro' },
+              { name: 'Galaxy Book', path: '/mobile/galaxy-book/galaxy-book' },
+              { name: 'Galaxy Book Go', path: '/mobile/galaxy-book/galaxy-book-go' },
+              { name: 'Samsung Chromebook', path: '/mobile/galaxy-book/samsung-chromebook' },
+              { name: 'Accessories', path: '/mobile/galaxy-book/accessories' },
+              { name: 'See All', path: '/mobile/galaxy-book/see-all' },
+              { name: 'Compare', path: '/mobile/galaxy-book/compare' }
+            ]
           }, 
           {
             child_item_num: 6,
             item: 'Watches',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Watch', 'Galaxy Watch4 Bespoke Studio', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/watches/overview' },
+              { name: 'Galaxy Watch', path: '/mobile/watches/galaxy-watch' },
+              { name: 'Galaxy Watch4 Bespoke Studio', path: '/mobile/watches/galaxy-watch4-bespoke-studio' },
+              { name: 'Accessories', path: '/mobile/watches/accessories' },
+              { name: 'See All', path: '/mobile/watches/see-all' },
+              { name: 'Compare', path: '/mobile/watches/compare' }
+            ]
           }, 
           {
             child_item_num: 5,
             item: 'Galaxy Buds',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Buds', 'AKG Headphones', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/galaxy-buds/overview' },
+              { name: 'Galaxy Buds', path: '/mobile/galaxy-buds/galaxy-buds' },
+              { name: 'AKG Headphones', path: '/mobile/galaxy-buds/akg-headphones' },
+              { name: 'See All', path: '/mobile/galaxy-buds/see-all' },
+              { name: 'Compare', path: '/mobile/galaxy-buds/compare' }
+            ]
           }, 
           {
             child_item_num: 6,
             item: 'Accessories',
             show_child_items: false,
-            child_items: ['Overview', 'Smartphones Accessories', 'Tablets Accessories', 'Galaxy Book Accessories', 'Watches Accessories', 'See All']
+            child_items: [
+              { name: 'Overview', path: '/mobile/accessories/overview' },
+              { name: 'Smartphones Accessories', path: '/mobile/accessories/smartphones-accessories' },
+              { name: 'Tablets Accessories', path: '/mobile/accessories/tablets-accessories' },
+              { name: 'Galaxy Book Accessories', path: '/mobile/accessories/galaxy-book-accessories' },
+              { name: 'Watches Accessories', path: '/mobile/accessories/watches-accessories' },
+              { name: 'See All', path: '/mobile/accessories/see-all' }
+            ]
           }, 
           {
             child_item_num: 11,
             item: 'One UI',
             show_child_items: false,
-            child_items: ['One UI Overview', 'App & Services Overview', 'Galaxy Store', 'Bixby', 'Samsung Pay', 'Samsung Health', 'Samsung Health Monitor', 'Samsung DeX', 'Samsung Members', 'SmartThings', 'Smart Switch']
+            child_items: [
+              { name: 'One UI Overview', path: '/mobile/one-ui/one-ui-overview' },
+              { name: 'App & Services Overview', path: '/mobile/one-ui/app-services-overview' },
+              { name: 'Galaxy Store', path: '/mobile/one-ui/galaxy-store' },
+              { name: 'Bixby', path: '/mobile/one-ui/bixby' },
+              { name: 'Samsung Pay', path: '/mobile/one-ui/samsung-pay' },
+              { name: 'Samsung Health', path: '/mobile/one-ui/samsung-health' },
+              { name: 'Samsung Health Monitor', path: '/mobile/one-ui/samsung-health-monitor'},
+              { name: 'Samsung DeX', path: '/mobile/one-ui/samsung-dex' },
+              { name: 'Samsung Members', path: '/mobile/one-ui/samsung-members' },
+              { name: 'SmartThings', path: '/mobile/one-ui/smartthings' },
+              { name: 'Smart Switch', path: '/mobile/one-ui/smart-switch' }
+            ]
           }, 
           {
             child_item_num: 0,
@@ -783,49 +1148,120 @@ function HeaderlgMenu (props) {
             child_item_num: 9,
             item: 'Featured',
             show_child_items: false,
-            child_items: ['Galaxy Bespoke', 'Galaxy Z Flip3 5G', 'Galaxy Z Fold3 5G', 'Galaxy S21 Ultra 5G', 'Galaxy S21| S21 + 5G', 'Galaxy A52s 5G', 'Galaxy Watch4', 'Galaxy Watch4 Classic', 'Galaxy Buds2']
+            child_items: [
+              { name: 'Galaxy Bespoke', path: '/galaxy-bespoke' },
+              { name: 'Galaxy Z Flip3 5G', path: '/galaxy-z-flip3-5g' },
+              { name: 'Galaxy Z Fold3 5G', path: '/galaxy-z-fold3-5g'},
+              { name: 'Galaxy S21 Ultra 5G', path: '/galaxy-s21-ultra-5g'},
+              { name: 'Galaxy S21| S21 + 5G', path: '/galaxy-s21-5g'},
+              { name: 'Galaxy A52s 5G', path: '/galaxy-a52s-5g'},
+              { name: 'Galaxy Watch4', path: 'galaxy-watch4'},
+              { name: 'Galaxy Watch4 Classic', path: '/galaxy-watch4-classic'},
+              { name: 'Galaxy Buds2', path: '/galaxy-buds'}
+            ]
           }, 
           {
             child_item_num: 10,
             item: 'Smartphones',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Z', 'Galaxy S', 'Galaxy A', 'Galaxy M', 'Phone Contracts', 'Accessories', 'See All', 'Compare', 'Help Me Choose']
+            child_items: [
+              { name: 'Overview', path: '/mobile/smartphones/overview' },
+              { name: 'Galaxy Z', path: '/mobile/smartphones/galaxy-z' },
+              { name: 'Galaxy S', path: '/mobile/smartphones/galaxy-s' },
+              { name: 'Galaxy A', path: '/mobile/smartphones/galaxy-a' },
+              { name: 'Galaxy M', path: '/mobile/smartphones/galaxy-m' },
+              { name: 'Phone Contracts', path: '/mobile/smartphones/phone-contracts' },
+              { name: 'Accessories', path: '/mobile/smartphones/accessories' },
+              { name: 'See All', path: '/mobile/smartphones/see-all' },
+              { name: 'Compare', path: '/mobile/smartphones/compare' },
+              { name: 'Help Me Choose', path: '/mobile/smartphones/help-me-choose'}
+            ]
           }, 
           {
             child_item_num: 7,
             item: 'Tablets',
             show_child_items: true,
-            child_items: ['Overview', 'Galaxy Tab S', 'Galaxy Tab A', 'Galaxy Book', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/tablets/overview' },
+              { name: 'Galaxy Tab S', path: '/mobile/tablets/galaxy-tab-s' },
+              { name: 'Galaxy Tab A', path: '/mobile/tablets/galaxy-tab-a' },
+              { name: 'Galaxy Book', path: '/mobile/tablets/galaxy-book' },
+              { name: 'Accessories', path: '/mobile/tablets/accessories' },
+              { name: 'See All', path: '/mobile/tablets/see-all' },
+              { name: 'Compare', path: '/mobile/tablets/compare' }
+            ]
           }, 
           {
             child_item_num: 9,
             item: 'Galaxy Book',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Book Pro 360', 'Galaxy Book Pro', 'Galaxy Book', 'Galaxy Book Go', 'Samsung Chromebook', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/galaxy-book/overview' },
+              { name: 'Galaxy Book Pro 360', path: '/mobile/galaxy-book/galaxy-book-pro360' },
+              { name: 'Galaxy Book Pro', path: '/mobile/galaxy-book/galaxy-book-pro' },
+              { name: 'Galaxy Book', path: '/mobile/galaxy-book/galaxy-book' },
+              { name: 'Galaxy Book Go', path: '/mobile/galaxy-book/galaxy-book-go' },
+              { name: 'Samsung Chromebook', path: '/mobile/galaxy-book/samsung-chromebook' },
+              { name: 'Accessories', path: '/mobile/galaxy-book/accessories' },
+              { name: 'See All', path: '/mobile/galaxy-book/see-all' },
+              { name: 'Compare', path: '/mobile/galaxy-book/compare' }
+            ]
           }, 
           {
             child_item_num: 6,
             item: 'Watches',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Watch', 'Galaxy Watch4 Bespoke Studio', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/watches/overview' },
+              { name: 'Galaxy Watch', path: '/mobile/watches/galaxy-watch' },
+              { name: 'Galaxy Watch4 Bespoke Studio', path: '/mobile/watches/galaxy-watch4-bespoke-studio' },
+              { name: 'Accessories', path: '/mobile/watches/accessories' },
+              { name: 'See All', path: '/mobile/watches/see-all' },
+              { name: 'Compare', path: '/mobile/watches/compare' }
+            ]
           }, 
           {
             child_item_num: 5,
             item: 'Galaxy Buds',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Buds', 'AKG Headphones', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/galaxy-buds/overview' },
+              { name: 'Galaxy Buds', path: '/mobile/galaxy-buds/galaxy-buds' },
+              { name: 'AKG Headphones', path: '/mobile/galaxy-buds/akg-headphones' },
+              { name: 'See All', path: '/mobile/galaxy-buds/see-all' },
+              { name: 'Compare', path: '/mobile/galaxy-buds/compare' }
+            ]
           }, 
           {
             child_item_num: 6,
             item: 'Accessories',
             show_child_items: false,
-            child_items: ['Overview', 'Smartphones Accessories', 'Tablets Accessories', 'Galaxy Book Accessories', 'Watches Accessories', 'See All']
+            child_items: [
+              { name: 'Overview', path: '/mobile/accessories/overview' },
+              { name: 'Smartphones Accessories', path: '/mobile/accessories/smartphones-accessories' },
+              { name: 'Tablets Accessories', path: '/mobile/accessories/tablets-accessories' },
+              { name: 'Galaxy Book Accessories', path: '/mobile/accessories/galaxy-book-accessories' },
+              { name: 'Watches Accessories', path: '/mobile/accessories/watches-accessories' },
+              { name: 'See All', path: '/mobile/accessories/see-all' }
+            ]
           }, 
           {
             child_item_num: 11,
             item: 'One UI',
             show_child_items: false,
-            child_items: ['One UI Overview', 'App & Services Overview', 'Galaxy Store', 'Bixby', 'Samsung Pay', 'Samsung Health', 'Samsung Health Monitor', 'Samsung DeX', 'Samsung Members', 'SmartThings', 'Smart Switch']
+            child_items: [
+              { name: 'One UI Overview', path: '/mobile/one-ui/one-ui-overview' },
+              { name: 'App & Services Overview', path: '/mobile/one-ui/app-services-overview' },
+              { name: 'Galaxy Store', path: '/mobile/one-ui/galaxy-store' },
+              { name: 'Bixby', path: '/mobile/one-ui/bixby' },
+              { name: 'Samsung Pay', path: '/mobile/one-ui/samsung-pay' },
+              { name: 'Samsung Health', path: '/mobile/one-ui/samsung-health' },
+              { name: 'Samsung Health Monitor', path: '/mobile/one-ui/samsung-health-monitor'},
+              { name: 'Samsung DeX', path: '/mobile/one-ui/samsung-dex' },
+              { name: 'Samsung Members', path: '/mobile/one-ui/samsung-members' },
+              { name: 'SmartThings', path: '/mobile/one-ui/smartthings' },
+              { name: 'Smart Switch', path: '/mobile/one-ui/smart-switch' }
+            ]
           }, 
           {
             child_item_num: 0,
@@ -846,49 +1282,120 @@ function HeaderlgMenu (props) {
             child_item_num: 9,
             item: 'Featured',
             show_child_items: false,
-            child_items: ['Galaxy Bespoke', 'Galaxy Z Flip3 5G', 'Galaxy Z Fold3 5G', 'Galaxy S21 Ultra 5G', 'Galaxy S21| S21 + 5G', 'Galaxy A52s 5G', 'Galaxy Watch4', 'Galaxy Watch4 Classic', 'Galaxy Buds2']
+            child_items: [
+              { name: 'Galaxy Bespoke', path: '/galaxy-bespoke' },
+              { name: 'Galaxy Z Flip3 5G', path: '/galaxy-z-flip3-5g' },
+              { name: 'Galaxy Z Fold3 5G', path: '/galaxy-z-fold3-5g'},
+              { name: 'Galaxy S21 Ultra 5G', path: '/galaxy-s21-ultra-5g'},
+              { name: 'Galaxy S21| S21 + 5G', path: '/galaxy-s21-5g'},
+              { name: 'Galaxy A52s 5G', path: '/galaxy-a52s-5g'},
+              { name: 'Galaxy Watch4', path: 'galaxy-watch4'},
+              { name: 'Galaxy Watch4 Classic', path: '/galaxy-watch4-classic'},
+              { name: 'Galaxy Buds2', path: '/galaxy-buds'}
+            ]
           }, 
           {
             child_item_num: 10,
             item: 'Smartphones',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Z', 'Galaxy S', 'Galaxy A', 'Galaxy M', 'Phone Contracts', 'Accessories', 'See All', 'Compare', 'Help Me Choose']
+            child_items: [
+              { name: 'Overview', path: '/mobile/smartphones/overview' },
+              { name: 'Galaxy Z', path: '/mobile/smartphones/galaxy-z' },
+              { name: 'Galaxy S', path: '/mobile/smartphones/galaxy-s' },
+              { name: 'Galaxy A', path: '/mobile/smartphones/galaxy-a' },
+              { name: 'Galaxy M', path: '/mobile/smartphones/galaxy-m' },
+              { name: 'Phone Contracts', path: '/mobile/smartphones/phone-contracts' },
+              { name: 'Accessories', path: '/mobile/smartphones/accessories' },
+              { name: 'See All', path: '/mobile/smartphones/see-all' },
+              { name: 'Compare', path: '/mobile/smartphones/compare' },
+              { name: 'Help Me Choose', path: '/mobile/smartphones/help-me-choose'}
+            ]
           }, 
           {
             child_item_num: 7,
             item: 'Tablets',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Tab S', 'Galaxy Tab A', 'Galaxy Book', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/tablets/overview' },
+              { name: 'Galaxy Tab S', path: '/mobile/tablets/galaxy-tab-s' },
+              { name: 'Galaxy Tab A', path: '/mobile/tablets/galaxy-tab-a' },
+              { name: 'Galaxy Book', path: '/mobile/tablets/galaxy-book' },
+              { name: 'Accessories', path: '/mobile/tablets/accessories' },
+              { name: 'See All', path: '/mobile/tablets/see-all' },
+              { name: 'Compare', path: '/mobile/tablets/compare' }
+            ]
           }, 
           {
             child_item_num: 9,
             item: 'Galaxy Book',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Book Pro 360', 'Galaxy Book Pro', 'Galaxy Book', 'Galaxy Book Go', 'Samsung Chromebook', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/galaxy-book/overview' },
+              { name: 'Galaxy Book Pro 360', path: '/mobile/galaxy-book/galaxy-book-pro360' },
+              { name: 'Galaxy Book Pro', path: '/mobile/galaxy-book/galaxy-book-pro' },
+              { name: 'Galaxy Book', path: '/mobile/galaxy-book/galaxy-book' },
+              { name: 'Galaxy Book Go', path: '/mobile/galaxy-book/galaxy-book-go' },
+              { name: 'Samsung Chromebook', path: '/mobile/galaxy-book/samsung-chromebook' },
+              { name: 'Accessories', path: '/mobile/galaxy-book/accessories' },
+              { name: 'See All', path: '/mobile/galaxy-book/see-all' },
+              { name: 'Compare', path: '/mobile/galaxy-book/compare' }
+            ]
           }, 
           {
             child_item_num: 6,
             item: 'Watches',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Watch', 'Galaxy Watch4 Bespoke Studio', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/watches/overview' },
+              { name: 'Galaxy Watch', path: '/mobile/watches/galaxy-watch' },
+              { name: 'Galaxy Watch4 Bespoke Studio', path: '/mobile/watches/galaxy-watch4-bespoke-studio' },
+              { name: 'Accessories', path: '/mobile/watches/accessories' },
+              { name: 'See All', path: '/mobile/watches/see-all' },
+              { name: 'Compare', path: '/mobile/watches/compare' }
+            ]
           }, 
           {
             child_item_num: 5,
             item: 'Galaxy Buds',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Buds', 'AKG Headphones', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/galaxy-buds/overview' },
+              { name: 'Galaxy Buds', path: '/mobile/galaxy-buds/galaxy-buds' },
+              { name: 'AKG Headphones', path: '/mobile/galaxy-buds/akg-headphones' },
+              { name: 'See All', path: '/mobile/galaxy-buds/see-all' },
+              { name: 'Compare', path: '/mobile/galaxy-buds/compare' }
+            ]
           }, 
           {
             child_item_num: 6,
             item: 'Accessories',
             show_child_items: false,
-            child_items: ['Overview', 'Smartphones Accessories', 'Tablets Accessories', 'Galaxy Book Accessories', 'Watches Accessories', 'See All']
+            child_items: [
+              { name: 'Overview', path: '/mobile/accessories/overview' },
+              { name: 'Smartphones Accessories', path: '/mobile/accessories/smartphones-accessories' },
+              { name: 'Tablets Accessories', path: '/mobile/accessories/tablets-accessories' },
+              { name: 'Galaxy Book Accessories', path: '/mobile/accessories/galaxy-book-accessories' },
+              { name: 'Watches Accessories', path: '/mobile/accessories/watches-accessories' },
+              { name: 'See All', path: '/mobile/accessories/see-all' }
+            ]
           }, 
           {
             child_item_num: 11,
             item: 'One UI',
             show_child_items: false,
-            child_items: ['One UI Overview', 'App & Services Overview', 'Galaxy Store', 'Bixby', 'Samsung Pay', 'Samsung Health', 'Samsung Health Monitor', 'Samsung DeX', 'Samsung Members', 'SmartThings', 'Smart Switch']
+            child_items: [
+              { name: 'One UI Overview', path: '/mobile/one-ui/one-ui-overview' },
+              { name: 'App & Services Overview', path: '/mobile/one-ui/app-services-overview' },
+              { name: 'Galaxy Store', path: '/mobile/one-ui/galaxy-store' },
+              { name: 'Bixby', path: '/mobile/one-ui/bixby' },
+              { name: 'Samsung Pay', path: '/mobile/one-ui/samsung-pay' },
+              { name: 'Samsung Health', path: '/mobile/one-ui/samsung-health' },
+              { name: 'Samsung Health Monitor', path: '/mobile/one-ui/samsung-health-monitor'},
+              { name: 'Samsung DeX', path: '/mobile/one-ui/samsung-dex' },
+              { name: 'Samsung Members', path: '/mobile/one-ui/samsung-members' },
+              { name: 'SmartThings', path: '/mobile/one-ui/smartthings' },
+              { name: 'Smart Switch', path: '/mobile/one-ui/smart-switch' }
+            ]
           }, 
           {
             child_item_num: 0,
@@ -911,49 +1418,120 @@ function HeaderlgMenu (props) {
             child_item_num: 9,
             item: 'Featured',
             show_child_items: false,
-            child_items: ['Galaxy Bespoke', 'Galaxy Z Flip3 5G', 'Galaxy Z Fold3 5G', 'Galaxy S21 Ultra 5G', 'Galaxy S21| S21 + 5G', 'Galaxy A52s 5G', 'Galaxy Watch4', 'Galaxy Watch4 Classic', 'Galaxy Buds2']
+            child_items: [
+              { name: 'Galaxy Bespoke', path: '/galaxy-bespoke' },
+              { name: 'Galaxy Z Flip3 5G', path: '/galaxy-z-flip3-5g' },
+              { name: 'Galaxy Z Fold3 5G', path: '/galaxy-z-fold3-5g'},
+              { name: 'Galaxy S21 Ultra 5G', path: '/galaxy-s21-ultra-5g'},
+              { name: 'Galaxy S21| S21 + 5G', path: '/galaxy-s21-5g'},
+              { name: 'Galaxy A52s 5G', path: '/galaxy-a52s-5g'},
+              { name: 'Galaxy Watch4', path: 'galaxy-watch4'},
+              { name: 'Galaxy Watch4 Classic', path: '/galaxy-watch4-classic'},
+              { name: 'Galaxy Buds2', path: '/galaxy-buds'}
+            ]
           }, 
           {
             child_item_num: 10,
             item: 'Smartphones',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Z', 'Galaxy S', 'Galaxy A', 'Galaxy M', 'Phone Contracts', 'Accessories', 'See All', 'Compare', 'Help Me Choose']
+            child_items: [
+              { name: 'Overview', path: '/mobile/smartphones/overview' },
+              { name: 'Galaxy Z', path: '/mobile/smartphones/galaxy-z' },
+              { name: 'Galaxy S', path: '/mobile/smartphones/galaxy-s' },
+              { name: 'Galaxy A', path: '/mobile/smartphones/galaxy-a' },
+              { name: 'Galaxy M', path: '/mobile/smartphones/galaxy-m' },
+              { name: 'Phone Contracts', path: '/mobile/smartphones/phone-contracts' },
+              { name: 'Accessories', path: '/mobile/smartphones/accessories' },
+              { name: 'See All', path: '/mobile/smartphones/see-all' },
+              { name: 'Compare', path: '/mobile/smartphones/compare' },
+              { name: 'Help Me Choose', path: '/mobile/smartphones/help-me-choose'}
+            ]
           }, 
           {
             child_item_num: 7,
             item: 'Tablets',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Tab S', 'Galaxy Tab A', 'Galaxy Book', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/tablets/overview' },
+              { name: 'Galaxy Tab S', path: '/mobile/tablets/galaxy-tab-s' },
+              { name: 'Galaxy Tab A', path: '/mobile/tablets/galaxy-tab-a' },
+              { name: 'Galaxy Book', path: '/mobile/tablets/galaxy-book' },
+              { name: 'Accessories', path: '/mobile/tablets/accessories' },
+              { name: 'See All', path: '/mobile/tablets/see-all' },
+              { name: 'Compare', path: '/mobile/tablets/compare' }
+            ]
           }, 
           {
             child_item_num: 9,
             item: 'Galaxy Book',
             show_child_items: true,
-            child_items: ['Overview', 'Galaxy Book Pro 360', 'Galaxy Book Pro', 'Galaxy Book', 'Galaxy Book Go', 'Samsung Chromebook', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/galaxy-book/overview' },
+              { name: 'Galaxy Book Pro 360', path: '/mobile/galaxy-book/galaxy-book-pro360' },
+              { name: 'Galaxy Book Pro', path: '/mobile/galaxy-book/galaxy-book-pro' },
+              { name: 'Galaxy Book', path: '/mobile/galaxy-book/galaxy-book' },
+              { name: 'Galaxy Book Go', path: '/mobile/galaxy-book/galaxy-book-go' },
+              { name: 'Samsung Chromebook', path: '/mobile/galaxy-book/samsung-chromebook' },
+              { name: 'Accessories', path: '/mobile/galaxy-book/accessories' },
+              { name: 'See All', path: '/mobile/galaxy-book/see-all' },
+              { name: 'Compare', path: '/mobile/galaxy-book/compare' }
+            ]
           }, 
           {
             child_item_num: 6,
             item: 'Watches',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Watch', 'Galaxy Watch4 Bespoke Studio', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/watches/overview' },
+              { name: 'Galaxy Watch', path: '/mobile/watches/galaxy-watch' },
+              { name: 'Galaxy Watch4 Bespoke Studio', path: '/mobile/watches/galaxy-watch4-bespoke-studio' },
+              { name: 'Accessories', path: '/mobile/watches/accessories' },
+              { name: 'See All', path: '/mobile/watches/see-all' },
+              { name: 'Compare', path: '/mobile/watches/compare' }
+            ]
           }, 
           {
             child_item_num: 5,
             item: 'Galaxy Buds',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Buds', 'AKG Headphones', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/galaxy-buds/overview' },
+              { name: 'Galaxy Buds', path: '/mobile/galaxy-buds/galaxy-buds' },
+              { name: 'AKG Headphones', path: '/mobile/galaxy-buds/akg-headphones' },
+              { name: 'See All', path: '/mobile/galaxy-buds/see-all' },
+              { name: 'Compare', path: '/mobile/galaxy-buds/compare' }
+            ]
           }, 
           {
             child_item_num: 6,
             item: 'Accessories',
             show_child_items: false,
-            child_items: ['Overview', 'Smartphones Accessories', 'Tablets Accessories', 'Galaxy Book Accessories', 'Watches Accessories', 'See All']
+            child_items: [
+              { name: 'Overview', path: '/mobile/accessories/overview' },
+              { name: 'Smartphones Accessories', path: '/mobile/accessories/smartphones-accessories' },
+              { name: 'Tablets Accessories', path: '/mobile/accessories/tablets-accessories' },
+              { name: 'Galaxy Book Accessories', path: '/mobile/accessories/galaxy-book-accessories' },
+              { name: 'Watches Accessories', path: '/mobile/accessories/watches-accessories' },
+              { name: 'See All', path: '/mobile/accessories/see-all' }
+            ]
           }, 
           {
             child_item_num: 11,
             item: 'One UI',
             show_child_items: false,
-            child_items: ['One UI Overview', 'App & Services Overview', 'Galaxy Store', 'Bixby', 'Samsung Pay', 'Samsung Health', 'Samsung Health Monitor', 'Samsung DeX', 'Samsung Members', 'SmartThings', 'Smart Switch']
+            child_items: [
+              { name: 'One UI Overview', path: '/mobile/one-ui/one-ui-overview' },
+              { name: 'App & Services Overview', path: '/mobile/one-ui/app-services-overview' },
+              { name: 'Galaxy Store', path: '/mobile/one-ui/galaxy-store' },
+              { name: 'Bixby', path: '/mobile/one-ui/bixby' },
+              { name: 'Samsung Pay', path: '/mobile/one-ui/samsung-pay' },
+              { name: 'Samsung Health', path: '/mobile/one-ui/samsung-health' },
+              { name: 'Samsung Health Monitor', path: '/mobile/one-ui/samsung-health-monitor'},
+              { name: 'Samsung DeX', path: '/mobile/one-ui/samsung-dex' },
+              { name: 'Samsung Members', path: '/mobile/one-ui/samsung-members' },
+              { name: 'SmartThings', path: '/mobile/one-ui/smartthings' },
+              { name: 'Smart Switch', path: '/mobile/one-ui/smart-switch' }
+            ]
           }, 
           {
             child_item_num: 0,
@@ -974,49 +1552,120 @@ function HeaderlgMenu (props) {
             child_item_num: 9,
             item: 'Featured',
             show_child_items: false,
-            child_items: ['Galaxy Bespoke', 'Galaxy Z Flip3 5G', 'Galaxy Z Fold3 5G', 'Galaxy S21 Ultra 5G', 'Galaxy S21| S21 + 5G', 'Galaxy A52s 5G', 'Galaxy Watch4', 'Galaxy Watch4 Classic', 'Galaxy Buds2']
+            child_items: [
+              { name: 'Galaxy Bespoke', path: '/galaxy-bespoke' },
+              { name: 'Galaxy Z Flip3 5G', path: '/galaxy-z-flip3-5g' },
+              { name: 'Galaxy Z Fold3 5G', path: '/galaxy-z-fold3-5g'},
+              { name: 'Galaxy S21 Ultra 5G', path: '/galaxy-s21-ultra-5g'},
+              { name: 'Galaxy S21| S21 + 5G', path: '/galaxy-s21-5g'},
+              { name: 'Galaxy A52s 5G', path: '/galaxy-a52s-5g'},
+              { name: 'Galaxy Watch4', path: 'galaxy-watch4'},
+              { name: 'Galaxy Watch4 Classic', path: '/galaxy-watch4-classic'},
+              { name: 'Galaxy Buds2', path: '/galaxy-buds'}
+            ]
           }, 
           {
             child_item_num: 10,
             item: 'Smartphones',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Z', 'Galaxy S', 'Galaxy A', 'Galaxy M', 'Phone Contracts', 'Accessories', 'See All', 'Compare', 'Help Me Choose']
+            child_items: [
+              { name: 'Overview', path: '/mobile/smartphones/overview' },
+              { name: 'Galaxy Z', path: '/mobile/smartphones/galaxy-z' },
+              { name: 'Galaxy S', path: '/mobile/smartphones/galaxy-s' },
+              { name: 'Galaxy A', path: '/mobile/smartphones/galaxy-a' },
+              { name: 'Galaxy M', path: '/mobile/smartphones/galaxy-m' },
+              { name: 'Phone Contracts', path: '/mobile/smartphones/phone-contracts' },
+              { name: 'Accessories', path: '/mobile/smartphones/accessories' },
+              { name: 'See All', path: '/mobile/smartphones/see-all' },
+              { name: 'Compare', path: '/mobile/smartphones/compare' },
+              { name: 'Help Me Choose', path: '/mobile/smartphones/help-me-choose'}
+            ]
           }, 
           {
             child_item_num: 7,
             item: 'Tablets',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Tab S', 'Galaxy Tab A', 'Galaxy Book', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/tablets/overview' },
+              { name: 'Galaxy Tab S', path: '/mobile/tablets/galaxy-tab-s' },
+              { name: 'Galaxy Tab A', path: '/mobile/tablets/galaxy-tab-a' },
+              { name: 'Galaxy Book', path: '/mobile/tablets/galaxy-book' },
+              { name: 'Accessories', path: '/mobile/tablets/accessories' },
+              { name: 'See All', path: '/mobile/tablets/see-all' },
+              { name: 'Compare', path: '/mobile/tablets/compare' }
+            ]
           }, 
           {
             child_item_num: 9,
             item: 'Galaxy Book',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Book Pro 360', 'Galaxy Book Pro', 'Galaxy Book', 'Galaxy Book Go', 'Samsung Chromebook', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/galaxy-book/overview' },
+              { name: 'Galaxy Book Pro 360', path: '/mobile/galaxy-book/galaxy-book-pro360' },
+              { name: 'Galaxy Book Pro', path: '/mobile/galaxy-book/galaxy-book-pro' },
+              { name: 'Galaxy Book', path: '/mobile/galaxy-book/galaxy-book' },
+              { name: 'Galaxy Book Go', path: '/mobile/galaxy-book/galaxy-book-go' },
+              { name: 'Samsung Chromebook', path: '/mobile/galaxy-book/samsung-chromebook' },
+              { name: 'Accessories', path: '/mobile/galaxy-book/accessories' },
+              { name: 'See All', path: '/mobile/galaxy-book/see-all' },
+              { name: 'Compare', path: '/mobile/galaxy-book/compare' }
+            ]
           }, 
           {
             child_item_num: 6,
             item: 'Watches',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Watch', 'Galaxy Watch4 Bespoke Studio', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/watches/overview' },
+              { name: 'Galaxy Watch', path: '/mobile/watches/galaxy-watch' },
+              { name: 'Galaxy Watch4 Bespoke Studio', path: '/mobile/watches/galaxy-watch4-bespoke-studio' },
+              { name: 'Accessories', path: '/mobile/watches/accessories' },
+              { name: 'See All', path: '/mobile/watches/see-all' },
+              { name: 'Compare', path: '/mobile/watches/compare' }
+            ]
           }, 
           {
             child_item_num: 5,
             item: 'Galaxy Buds',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Buds', 'AKG Headphones', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/galaxy-buds/overview' },
+              { name: 'Galaxy Buds', path: '/mobile/galaxy-buds/galaxy-buds' },
+              { name: 'AKG Headphones', path: '/mobile/galaxy-buds/akg-headphones' },
+              { name: 'See All', path: '/mobile/galaxy-buds/see-all' },
+              { name: 'Compare', path: '/mobile/galaxy-buds/compare' }
+            ]
           }, 
           {
             child_item_num: 6,
             item: 'Accessories',
             show_child_items: false,
-            child_items: ['Overview', 'Smartphones Accessories', 'Tablets Accessories', 'Galaxy Book Accessories', 'Watches Accessories', 'See All']
+            child_items: [
+              { name: 'Overview', path: '/mobile/accessories/overview' },
+              { name: 'Smartphones Accessories', path: '/mobile/accessories/smartphones-accessories' },
+              { name: 'Tablets Accessories', path: '/mobile/accessories/tablets-accessories' },
+              { name: 'Galaxy Book Accessories', path: '/mobile/accessories/galaxy-book-accessories' },
+              { name: 'Watches Accessories', path: '/mobile/accessories/watches-accessories' },
+              { name: 'See All', path: '/mobile/accessories/see-all' }
+            ]
           }, 
           {
             child_item_num: 11,
             item: 'One UI',
             show_child_items: false,
-            child_items: ['One UI Overview', 'App & Services Overview', 'Galaxy Store', 'Bixby', 'Samsung Pay', 'Samsung Health', 'Samsung Health Monitor', 'Samsung DeX', 'Samsung Members', 'SmartThings', 'Smart Switch']
+            child_items: [
+              { name: 'One UI Overview', path: '/mobile/one-ui/one-ui-overview' },
+              { name: 'App & Services Overview', path: '/mobile/one-ui/app-services-overview' },
+              { name: 'Galaxy Store', path: '/mobile/one-ui/galaxy-store' },
+              { name: 'Bixby', path: '/mobile/one-ui/bixby' },
+              { name: 'Samsung Pay', path: '/mobile/one-ui/samsung-pay' },
+              { name: 'Samsung Health', path: '/mobile/one-ui/samsung-health' },
+              { name: 'Samsung Health Monitor', path: '/mobile/one-ui/samsung-health-monitor'},
+              { name: 'Samsung DeX', path: '/mobile/one-ui/samsung-dex' },
+              { name: 'Samsung Members', path: '/mobile/one-ui/samsung-members' },
+              { name: 'SmartThings', path: '/mobile/one-ui/smartthings' },
+              { name: 'Smart Switch', path: '/mobile/one-ui/smart-switch' }
+            ]
           }, 
           {
             child_item_num: 0,
@@ -1039,49 +1688,120 @@ function HeaderlgMenu (props) {
             child_item_num: 9,
             item: 'Featured',
             show_child_items: false,
-            child_items: ['Galaxy Bespoke', 'Galaxy Z Flip3 5G', 'Galaxy Z Fold3 5G', 'Galaxy S21 Ultra 5G', 'Galaxy S21| S21 + 5G', 'Galaxy A52s 5G', 'Galaxy Watch4', 'Galaxy Watch4 Classic', 'Galaxy Buds2']
+            child_items: [
+              { name: 'Galaxy Bespoke', path: '/galaxy-bespoke' },
+              { name: 'Galaxy Z Flip3 5G', path: '/galaxy-z-flip3-5g' },
+              { name: 'Galaxy Z Fold3 5G', path: '/galaxy-z-fold3-5g'},
+              { name: 'Galaxy S21 Ultra 5G', path: '/galaxy-s21-ultra-5g'},
+              { name: 'Galaxy S21| S21 + 5G', path: '/galaxy-s21-5g'},
+              { name: 'Galaxy A52s 5G', path: '/galaxy-a52s-5g'},
+              { name: 'Galaxy Watch4', path: 'galaxy-watch4'},
+              { name: 'Galaxy Watch4 Classic', path: '/galaxy-watch4-classic'},
+              { name: 'Galaxy Buds2', path: '/galaxy-buds'}
+            ]
           }, 
           {
             child_item_num: 10,
             item: 'Smartphones',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Z', 'Galaxy S', 'Galaxy A', 'Galaxy M', 'Phone Contracts', 'Accessories', 'See All', 'Compare', 'Help Me Choose']
+            child_items: [
+              { name: 'Overview', path: '/mobile/smartphones/overview' },
+              { name: 'Galaxy Z', path: '/mobile/smartphones/galaxy-z' },
+              { name: 'Galaxy S', path: '/mobile/smartphones/galaxy-s' },
+              { name: 'Galaxy A', path: '/mobile/smartphones/galaxy-a' },
+              { name: 'Galaxy M', path: '/mobile/smartphones/galaxy-m' },
+              { name: 'Phone Contracts', path: '/mobile/smartphones/phone-contracts' },
+              { name: 'Accessories', path: '/mobile/smartphones/accessories' },
+              { name: 'See All', path: '/mobile/smartphones/see-all' },
+              { name: 'Compare', path: '/mobile/smartphones/compare' },
+              { name: 'Help Me Choose', path: '/mobile/smartphones/help-me-choose'}
+            ]
           }, 
           {
             child_item_num: 7,
             item: 'Tablets',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Tab S', 'Galaxy Tab A', 'Galaxy Book', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/tablets/overview' },
+              { name: 'Galaxy Tab S', path: '/mobile/tablets/galaxy-tab-s' },
+              { name: 'Galaxy Tab A', path: '/mobile/tablets/galaxy-tab-a' },
+              { name: 'Galaxy Book', path: '/mobile/tablets/galaxy-book' },
+              { name: 'Accessories', path: '/mobile/tablets/accessories' },
+              { name: 'See All', path: '/mobile/tablets/see-all' },
+              { name: 'Compare', path: '/mobile/tablets/compare' }
+            ]
           }, 
           {
             child_item_num: 9,
             item: 'Galaxy Book',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Book Pro 360', 'Galaxy Book Pro', 'Galaxy Book', 'Galaxy Book Go', 'Samsung Chromebook', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/galaxy-book/overview' },
+              { name: 'Galaxy Book Pro 360', path: '/mobile/galaxy-book/galaxy-book-pro360' },
+              { name: 'Galaxy Book Pro', path: '/mobile/galaxy-book/galaxy-book-pro' },
+              { name: 'Galaxy Book', path: '/mobile/galaxy-book/galaxy-book' },
+              { name: 'Galaxy Book Go', path: '/mobile/galaxy-book/galaxy-book-go' },
+              { name: 'Samsung Chromebook', path: '/mobile/galaxy-book/samsung-chromebook' },
+              { name: 'Accessories', path: '/mobile/galaxy-book/accessories' },
+              { name: 'See All', path: '/mobile/galaxy-book/see-all' },
+              { name: 'Compare', path: '/mobile/galaxy-book/compare' }
+            ]
           }, 
           {
             child_item_num: 6,
             item: 'Watches',
             show_child_items: true,
-            child_items: ['Overview', 'Galaxy Watch', 'Galaxy Watch4 Bespoke Studio', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/watches/overview' },
+              { name: 'Galaxy Watch', path: '/mobile/watches/galaxy-watch' },
+              { name: 'Galaxy Watch4 Bespoke Studio', path: '/mobile/watches/galaxy-watch4-bespoke-studio' },
+              { name: 'Accessories', path: '/mobile/watches/accessories' },
+              { name: 'See All', path: '/mobile/watches/see-all' },
+              { name: 'Compare', path: '/mobile/watches/compare' }
+            ]
           }, 
           {
             child_item_num: 5,
             item: 'Galaxy Buds',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Buds', 'AKG Headphones', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/galaxy-buds/overview' },
+              { name: 'Galaxy Buds', path: '/mobile/galaxy-buds/galaxy-buds' },
+              { name: 'AKG Headphones', path: '/mobile/galaxy-buds/akg-headphones' },
+              { name: 'See All', path: '/mobile/galaxy-buds/see-all' },
+              { name: 'Compare', path: '/mobile/galaxy-buds/compare' }
+            ]
           }, 
           {
             child_item_num: 6,
             item: 'Accessories',
             show_child_items: false,
-            child_items: ['Overview', 'Smartphones Accessories', 'Tablets Accessories', 'Galaxy Book Accessories', 'Watches Accessories', 'See All']
+            child_items: [
+              { name: 'Overview', path: '/mobile/accessories/overview' },
+              { name: 'Smartphones Accessories', path: '/mobile/accessories/smartphones-accessories' },
+              { name: 'Tablets Accessories', path: '/mobile/accessories/tablets-accessories' },
+              { name: 'Galaxy Book Accessories', path: '/mobile/accessories/galaxy-book-accessories' },
+              { name: 'Watches Accessories', path: '/mobile/accessories/watches-accessories' },
+              { name: 'See All', path: '/mobile/accessories/see-all' }
+            ]
           }, 
           {
             child_item_num: 11,
             item: 'One UI',
             show_child_items: false,
-            child_items: ['One UI Overview', 'App & Services Overview', 'Galaxy Store', 'Bixby', 'Samsung Pay', 'Samsung Health', 'Samsung Health Monitor', 'Samsung DeX', 'Samsung Members', 'SmartThings', 'Smart Switch']
+            child_items: [
+              { name: 'One UI Overview', path: '/mobile/one-ui/one-ui-overview' },
+              { name: 'App & Services Overview', path: '/mobile/one-ui/app-services-overview' },
+              { name: 'Galaxy Store', path: '/mobile/one-ui/galaxy-store' },
+              { name: 'Bixby', path: '/mobile/one-ui/bixby' },
+              { name: 'Samsung Pay', path: '/mobile/one-ui/samsung-pay' },
+              { name: 'Samsung Health', path: '/mobile/one-ui/samsung-health' },
+              { name: 'Samsung Health Monitor', path: '/mobile/one-ui/samsung-health-monitor'},
+              { name: 'Samsung DeX', path: '/mobile/one-ui/samsung-dex' },
+              { name: 'Samsung Members', path: '/mobile/one-ui/samsung-members' },
+              { name: 'SmartThings', path: '/mobile/one-ui/smartthings' },
+              { name: 'Smart Switch', path: '/mobile/one-ui/smart-switch' }
+            ]
           }, 
           {
             child_item_num: 0,
@@ -1102,49 +1822,120 @@ function HeaderlgMenu (props) {
             child_item_num: 9,
             item: 'Featured',
             show_child_items: false,
-            child_items: ['Galaxy Bespoke', 'Galaxy Z Flip3 5G', 'Galaxy Z Fold3 5G', 'Galaxy S21 Ultra 5G', 'Galaxy S21| S21 + 5G', 'Galaxy A52s 5G', 'Galaxy Watch4', 'Galaxy Watch4 Classic', 'Galaxy Buds2']
+            child_items: [
+              { name: 'Galaxy Bespoke', path: '/galaxy-bespoke' },
+              { name: 'Galaxy Z Flip3 5G', path: '/galaxy-z-flip3-5g' },
+              { name: 'Galaxy Z Fold3 5G', path: '/galaxy-z-fold3-5g'},
+              { name: 'Galaxy S21 Ultra 5G', path: '/galaxy-s21-ultra-5g'},
+              { name: 'Galaxy S21| S21 + 5G', path: '/galaxy-s21-5g'},
+              { name: 'Galaxy A52s 5G', path: '/galaxy-a52s-5g'},
+              { name: 'Galaxy Watch4', path: 'galaxy-watch4'},
+              { name: 'Galaxy Watch4 Classic', path: '/galaxy-watch4-classic'},
+              { name: 'Galaxy Buds2', path: '/galaxy-buds'}
+            ]
           }, 
           {
             child_item_num: 10,
             item: 'Smartphones',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Z', 'Galaxy S', 'Galaxy A', 'Galaxy M', 'Phone Contracts', 'Accessories', 'See All', 'Compare', 'Help Me Choose']
+            child_items: [
+              { name: 'Overview', path: '/mobile/smartphones/overview' },
+              { name: 'Galaxy Z', path: '/mobile/smartphones/galaxy-z' },
+              { name: 'Galaxy S', path: '/mobile/smartphones/galaxy-s' },
+              { name: 'Galaxy A', path: '/mobile/smartphones/galaxy-a' },
+              { name: 'Galaxy M', path: '/mobile/smartphones/galaxy-m' },
+              { name: 'Phone Contracts', path: '/mobile/smartphones/phone-contracts' },
+              { name: 'Accessories', path: '/mobile/smartphones/accessories' },
+              { name: 'See All', path: '/mobile/smartphones/see-all' },
+              { name: 'Compare', path: '/mobile/smartphones/compare' },
+              { name: 'Help Me Choose', path: '/mobile/smartphones/help-me-choose'}
+            ]
           }, 
           {
             child_item_num: 7,
             item: 'Tablets',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Tab S', 'Galaxy Tab A', 'Galaxy Book', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/tablets/overview' },
+              { name: 'Galaxy Tab S', path: '/mobile/tablets/galaxy-tab-s' },
+              { name: 'Galaxy Tab A', path: '/mobile/tablets/galaxy-tab-a' },
+              { name: 'Galaxy Book', path: '/mobile/tablets/galaxy-book' },
+              { name: 'Accessories', path: '/mobile/tablets/accessories' },
+              { name: 'See All', path: '/mobile/tablets/see-all' },
+              { name: 'Compare', path: '/mobile/tablets/compare' }
+            ]
           }, 
           {
             child_item_num: 9,
             item: 'Galaxy Book',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Book Pro 360', 'Galaxy Book Pro', 'Galaxy Book', 'Galaxy Book Go', 'Samsung Chromebook', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/galaxy-book/overview' },
+              { name: 'Galaxy Book Pro 360', path: '/mobile/galaxy-book/galaxy-book-pro360' },
+              { name: 'Galaxy Book Pro', path: '/mobile/galaxy-book/galaxy-book-pro' },
+              { name: 'Galaxy Book', path: '/mobile/galaxy-book/galaxy-book' },
+              { name: 'Galaxy Book Go', path: '/mobile/galaxy-book/galaxy-book-go' },
+              { name: 'Samsung Chromebook', path: '/mobile/galaxy-book/samsung-chromebook' },
+              { name: 'Accessories', path: '/mobile/galaxy-book/accessories' },
+              { name: 'See All', path: '/mobile/galaxy-book/see-all' },
+              { name: 'Compare', path: '/mobile/galaxy-book/compare' }
+            ]
           }, 
           {
             child_item_num: 6,
             item: 'Watches',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Watch', 'Galaxy Watch4 Bespoke Studio', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/watches/overview' },
+              { name: 'Galaxy Watch', path: '/mobile/watches/galaxy-watch' },
+              { name: 'Galaxy Watch4 Bespoke Studio', path: '/mobile/watches/galaxy-watch4-bespoke-studio' },
+              { name: 'Accessories', path: '/mobile/watches/accessories' },
+              { name: 'See All', path: '/mobile/watches/see-all' },
+              { name: 'Compare', path: '/mobile/watches/compare' }
+            ]
           }, 
           {
             child_item_num: 5,
             item: 'Galaxy Buds',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Buds', 'AKG Headphones', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/galaxy-buds/overview' },
+              { name: 'Galaxy Buds', path: '/mobile/galaxy-buds/galaxy-buds' },
+              { name: 'AKG Headphones', path: '/mobile/galaxy-buds/akg-headphones' },
+              { name: 'See All', path: '/mobile/galaxy-buds/see-all' },
+              { name: 'Compare', path: '/mobile/galaxy-buds/compare' }
+            ]
           }, 
           {
             child_item_num: 6,
             item: 'Accessories',
             show_child_items: false,
-            child_items: ['Overview', 'Smartphones Accessories', 'Tablets Accessories', 'Galaxy Book Accessories', 'Watches Accessories', 'See All']
+            child_items: [
+              { name: 'Overview', path: '/mobile/accessories/overview' },
+              { name: 'Smartphones Accessories', path: '/mobile/accessories/smartphones-accessories' },
+              { name: 'Tablets Accessories', path: '/mobile/accessories/tablets-accessories' },
+              { name: 'Galaxy Book Accessories', path: '/mobile/accessories/galaxy-book-accessories' },
+              { name: 'Watches Accessories', path: '/mobile/accessories/watches-accessories' },
+              { name: 'See All', path: '/mobile/accessories/see-all' }
+            ]
           }, 
           {
             child_item_num: 11,
             item: 'One UI',
             show_child_items: false,
-            child_items: ['One UI Overview', 'App & Services Overview', 'Galaxy Store', 'Bixby', 'Samsung Pay', 'Samsung Health', 'Samsung Health Monitor', 'Samsung DeX', 'Samsung Members', 'SmartThings', 'Smart Switch']
+            child_items: [
+              { name: 'One UI Overview', path: '/mobile/one-ui/one-ui-overview' },
+              { name: 'App & Services Overview', path: '/mobile/one-ui/app-services-overview' },
+              { name: 'Galaxy Store', path: '/mobile/one-ui/galaxy-store' },
+              { name: 'Bixby', path: '/mobile/one-ui/bixby' },
+              { name: 'Samsung Pay', path: '/mobile/one-ui/samsung-pay' },
+              { name: 'Samsung Health', path: '/mobile/one-ui/samsung-health' },
+              { name: 'Samsung Health Monitor', path: '/mobile/one-ui/samsung-health-monitor'},
+              { name: 'Samsung DeX', path: '/mobile/one-ui/samsung-dex' },
+              { name: 'Samsung Members', path: '/mobile/one-ui/samsung-members' },
+              { name: 'SmartThings', path: '/mobile/one-ui/smartthings' },
+              { name: 'Smart Switch', path: '/mobile/one-ui/smart-switch' }
+            ]
           }, 
           {
             child_item_num: 0,
@@ -1167,49 +1958,120 @@ function HeaderlgMenu (props) {
             child_item_num: 9,
             item: 'Featured',
             show_child_items: false,
-            child_items: ['Galaxy Bespoke', 'Galaxy Z Flip3 5G', 'Galaxy Z Fold3 5G', 'Galaxy S21 Ultra 5G', 'Galaxy S21| S21 + 5G', 'Galaxy A52s 5G', 'Galaxy Watch4', 'Galaxy Watch4 Classic', 'Galaxy Buds2']
+            child_items: [
+              { name: 'Galaxy Bespoke', path: '/galaxy-bespoke' },
+              { name: 'Galaxy Z Flip3 5G', path: '/galaxy-z-flip3-5g' },
+              { name: 'Galaxy Z Fold3 5G', path: '/galaxy-z-fold3-5g'},
+              { name: 'Galaxy S21 Ultra 5G', path: '/galaxy-s21-ultra-5g'},
+              { name: 'Galaxy S21| S21 + 5G', path: '/galaxy-s21-5g'},
+              { name: 'Galaxy A52s 5G', path: '/galaxy-a52s-5g'},
+              { name: 'Galaxy Watch4', path: 'galaxy-watch4'},
+              { name: 'Galaxy Watch4 Classic', path: '/galaxy-watch4-classic'},
+              { name: 'Galaxy Buds2', path: '/galaxy-buds'}
+            ]
           }, 
           {
             child_item_num: 10,
             item: 'Smartphones',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Z', 'Galaxy S', 'Galaxy A', 'Galaxy M', 'Phone Contracts', 'Accessories', 'See All', 'Compare', 'Help Me Choose']
+            child_items: [
+              { name: 'Overview', path: '/mobile/smartphones/overview' },
+              { name: 'Galaxy Z', path: '/mobile/smartphones/galaxy-z' },
+              { name: 'Galaxy S', path: '/mobile/smartphones/galaxy-s' },
+              { name: 'Galaxy A', path: '/mobile/smartphones/galaxy-a' },
+              { name: 'Galaxy M', path: '/mobile/smartphones/galaxy-m' },
+              { name: 'Phone Contracts', path: '/mobile/smartphones/phone-contracts' },
+              { name: 'Accessories', path: '/mobile/smartphones/accessories' },
+              { name: 'See All', path: '/mobile/smartphones/see-all' },
+              { name: 'Compare', path: '/mobile/smartphones/compare' },
+              { name: 'Help Me Choose', path: '/mobile/smartphones/help-me-choose'}
+            ]
           }, 
           {
             child_item_num: 7,
             item: 'Tablets',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Tab S', 'Galaxy Tab A', 'Galaxy Book', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/tablets/overview' },
+              { name: 'Galaxy Tab S', path: '/mobile/tablets/galaxy-tab-s' },
+              { name: 'Galaxy Tab A', path: '/mobile/tablets/galaxy-tab-a' },
+              { name: 'Galaxy Book', path: '/mobile/tablets/galaxy-book' },
+              { name: 'Accessories', path: '/mobile/tablets/accessories' },
+              { name: 'See All', path: '/mobile/tablets/see-all' },
+              { name: 'Compare', path: '/mobile/tablets/compare' }
+            ]
           }, 
           {
             child_item_num: 9,
             item: 'Galaxy Book',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Book Pro 360', 'Galaxy Book Pro', 'Galaxy Book', 'Galaxy Book Go', 'Samsung Chromebook', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/galaxy-book/overview' },
+              { name: 'Galaxy Book Pro 360', path: '/mobile/galaxy-book/galaxy-book-pro360' },
+              { name: 'Galaxy Book Pro', path: '/mobile/galaxy-book/galaxy-book-pro' },
+              { name: 'Galaxy Book', path: '/mobile/galaxy-book/galaxy-book' },
+              { name: 'Galaxy Book Go', path: '/mobile/galaxy-book/galaxy-book-go' },
+              { name: 'Samsung Chromebook', path: '/mobile/galaxy-book/samsung-chromebook' },
+              { name: 'Accessories', path: '/mobile/galaxy-book/accessories' },
+              { name: 'See All', path: '/mobile/galaxy-book/see-all' },
+              { name: 'Compare', path: '/mobile/galaxy-book/compare' }
+            ]
           }, 
           {
             child_item_num: 6,
             item: 'Watches',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Watch', 'Galaxy Watch4 Bespoke Studio', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/watches/overview' },
+              { name: 'Galaxy Watch', path: '/mobile/watches/galaxy-watch' },
+              { name: 'Galaxy Watch4 Bespoke Studio', path: '/mobile/watches/galaxy-watch4-bespoke-studio' },
+              { name: 'Accessories', path: '/mobile/watches/accessories' },
+              { name: 'See All', path: '/mobile/watches/see-all' },
+              { name: 'Compare', path: '/mobile/watches/compare' }
+            ]
           }, 
           {
             child_item_num: 5,
             item: 'Galaxy Buds',
             show_child_items: true,
-            child_items: ['Overview', 'Galaxy Buds', 'AKG Headphones', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/galaxy-buds/overview' },
+              { name: 'Galaxy Buds', path: '/mobile/galaxy-buds/galaxy-buds' },
+              { name: 'AKG Headphones', path: '/mobile/galaxy-buds/akg-headphones' },
+              { name: 'See All', path: '/mobile/galaxy-buds/see-all' },
+              { name: 'Compare', path: '/mobile/galaxy-buds/compare' }
+            ]
           }, 
           {
             child_item_num: 6,
             item: 'Accessories',
             show_child_items: false,
-            child_items: ['Overview', 'Smartphones Accessories', 'Tablets Accessories', 'Galaxy Book Accessories', 'Watches Accessories', 'See All']
+            child_items: [
+              { name: 'Overview', path: '/mobile/accessories/overview' },
+              { name: 'Smartphones Accessories', path: '/mobile/accessories/smartphones-accessories' },
+              { name: 'Tablets Accessories', path: '/mobile/accessories/tablets-accessories' },
+              { name: 'Galaxy Book Accessories', path: '/mobile/accessories/galaxy-book-accessories' },
+              { name: 'Watches Accessories', path: '/mobile/accessories/watches-accessories' },
+              { name: 'See All', path: '/mobile/accessories/see-all' }
+            ]
           }, 
           {
             child_item_num: 11,
             item: 'One UI',
             show_child_items: false,
-            child_items: ['One UI Overview', 'App & Services Overview', 'Galaxy Store', 'Bixby', 'Samsung Pay', 'Samsung Health', 'Samsung Health Monitor', 'Samsung DeX', 'Samsung Members', 'SmartThings', 'Smart Switch']
+            child_items: [
+              { name: 'One UI Overview', path: '/mobile/one-ui/one-ui-overview' },
+              { name: 'App & Services Overview', path: '/mobile/one-ui/app-services-overview' },
+              { name: 'Galaxy Store', path: '/mobile/one-ui/galaxy-store' },
+              { name: 'Bixby', path: '/mobile/one-ui/bixby' },
+              { name: 'Samsung Pay', path: '/mobile/one-ui/samsung-pay' },
+              { name: 'Samsung Health', path: '/mobile/one-ui/samsung-health' },
+              { name: 'Samsung Health Monitor', path: '/mobile/one-ui/samsung-health-monitor'},
+              { name: 'Samsung DeX', path: '/mobile/one-ui/samsung-dex' },
+              { name: 'Samsung Members', path: '/mobile/one-ui/samsung-members' },
+              { name: 'SmartThings', path: '/mobile/one-ui/smartthings' },
+              { name: 'Smart Switch', path: '/mobile/one-ui/smart-switch' }
+            ]
           }, 
           {
             child_item_num: 0,
@@ -1230,49 +2092,120 @@ function HeaderlgMenu (props) {
             child_item_num: 9,
             item: 'Featured',
             show_child_items: false,
-            child_items: ['Galaxy Bespoke', 'Galaxy Z Flip3 5G', 'Galaxy Z Fold3 5G', 'Galaxy S21 Ultra 5G', 'Galaxy S21| S21 + 5G', 'Galaxy A52s 5G', 'Galaxy Watch4', 'Galaxy Watch4 Classic', 'Galaxy Buds2']
+            child_items: [
+              { name: 'Galaxy Bespoke', path: '/galaxy-bespoke' },
+              { name: 'Galaxy Z Flip3 5G', path: '/galaxy-z-flip3-5g' },
+              { name: 'Galaxy Z Fold3 5G', path: '/galaxy-z-fold3-5g'},
+              { name: 'Galaxy S21 Ultra 5G', path: '/galaxy-s21-ultra-5g'},
+              { name: 'Galaxy S21| S21 + 5G', path: '/galaxy-s21-5g'},
+              { name: 'Galaxy A52s 5G', path: '/galaxy-a52s-5g'},
+              { name: 'Galaxy Watch4', path: 'galaxy-watch4'},
+              { name: 'Galaxy Watch4 Classic', path: '/galaxy-watch4-classic'},
+              { name: 'Galaxy Buds2', path: '/galaxy-buds'}
+            ]
           }, 
           {
             child_item_num: 10,
             item: 'Smartphones',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Z', 'Galaxy S', 'Galaxy A', 'Galaxy M', 'Phone Contracts', 'Accessories', 'See All', 'Compare', 'Help Me Choose']
+            child_items: [
+              { name: 'Overview', path: '/mobile/smartphones/overview' },
+              { name: 'Galaxy Z', path: '/mobile/smartphones/galaxy-z' },
+              { name: 'Galaxy S', path: '/mobile/smartphones/galaxy-s' },
+              { name: 'Galaxy A', path: '/mobile/smartphones/galaxy-a' },
+              { name: 'Galaxy M', path: '/mobile/smartphones/galaxy-m' },
+              { name: 'Phone Contracts', path: '/mobile/smartphones/phone-contracts' },
+              { name: 'Accessories', path: '/mobile/smartphones/accessories' },
+              { name: 'See All', path: '/mobile/smartphones/see-all' },
+              { name: 'Compare', path: '/mobile/smartphones/compare' },
+              { name: 'Help Me Choose', path: '/mobile/smartphones/help-me-choose'}
+            ]
           }, 
           {
             child_item_num: 7,
             item: 'Tablets',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Tab S', 'Galaxy Tab A', 'Galaxy Book', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/tablets/overview' },
+              { name: 'Galaxy Tab S', path: '/mobile/tablets/galaxy-tab-s' },
+              { name: 'Galaxy Tab A', path: '/mobile/tablets/galaxy-tab-a' },
+              { name: 'Galaxy Book', path: '/mobile/tablets/galaxy-book' },
+              { name: 'Accessories', path: '/mobile/tablets/accessories' },
+              { name: 'See All', path: '/mobile/tablets/see-all' },
+              { name: 'Compare', path: '/mobile/tablets/compare' }
+            ]
           }, 
           {
             child_item_num: 9,
             item: 'Galaxy Book',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Book Pro 360', 'Galaxy Book Pro', 'Galaxy Book', 'Galaxy Book Go', 'Samsung Chromebook', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/galaxy-book/overview' },
+              { name: 'Galaxy Book Pro 360', path: '/mobile/galaxy-book/galaxy-book-pro360' },
+              { name: 'Galaxy Book Pro', path: '/mobile/galaxy-book/galaxy-book-pro' },
+              { name: 'Galaxy Book', path: '/mobile/galaxy-book/galaxy-book' },
+              { name: 'Galaxy Book Go', path: '/mobile/galaxy-book/galaxy-book-go' },
+              { name: 'Samsung Chromebook', path: '/mobile/galaxy-book/samsung-chromebook' },
+              { name: 'Accessories', path: '/mobile/galaxy-book/accessories' },
+              { name: 'See All', path: '/mobile/galaxy-book/see-all' },
+              { name: 'Compare', path: '/mobile/galaxy-book/compare' }
+            ]
           }, 
           {
             child_item_num: 6,
             item: 'Watches',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Watch', 'Galaxy Watch4 Bespoke Studio', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/watches/overview' },
+              { name: 'Galaxy Watch', path: '/mobile/watches/galaxy-watch' },
+              { name: 'Galaxy Watch4 Bespoke Studio', path: '/mobile/watches/galaxy-watch4-bespoke-studio' },
+              { name: 'Accessories', path: '/mobile/watches/accessories' },
+              { name: 'See All', path: '/mobile/watches/see-all' },
+              { name: 'Compare', path: '/mobile/watches/compare' }
+            ]
           }, 
           {
             child_item_num: 5,
             item: 'Galaxy Buds',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Buds', 'AKG Headphones', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/galaxy-buds/overview' },
+              { name: 'Galaxy Buds', path: '/mobile/galaxy-buds/galaxy-buds' },
+              { name: 'AKG Headphones', path: '/mobile/galaxy-buds/akg-headphones' },
+              { name: 'See All', path: '/mobile/galaxy-buds/see-all' },
+              { name: 'Compare', path: '/mobile/galaxy-buds/compare' }
+            ]
           }, 
           {
             child_item_num: 6,
             item: 'Accessories',
             show_child_items: false,
-            child_items: ['Overview', 'Smartphones Accessories', 'Tablets Accessories', 'Galaxy Book Accessories', 'Watches Accessories', 'See All']
+            child_items: [
+              { name: 'Overview', path: '/mobile/accessories/overview' },
+              { name: 'Smartphones Accessories', path: '/mobile/accessories/smartphones-accessories' },
+              { name: 'Tablets Accessories', path: '/mobile/accessories/tablets-accessories' },
+              { name: 'Galaxy Book Accessories', path: '/mobile/accessories/galaxy-book-accessories' },
+              { name: 'Watches Accessories', path: '/mobile/accessories/watches-accessories' },
+              { name: 'See All', path: '/mobile/accessories/see-all' }
+            ]
           }, 
           {
             child_item_num: 11,
             item: 'One UI',
             show_child_items: false,
-            child_items: ['One UI Overview', 'App & Services Overview', 'Galaxy Store', 'Bixby', 'Samsung Pay', 'Samsung Health', 'Samsung Health Monitor', 'Samsung DeX', 'Samsung Members', 'SmartThings', 'Smart Switch']
+            child_items: [
+              { name: 'One UI Overview', path: '/mobile/one-ui/one-ui-overview' },
+              { name: 'App & Services Overview', path: '/mobile/one-ui/app-services-overview' },
+              { name: 'Galaxy Store', path: '/mobile/one-ui/galaxy-store' },
+              { name: 'Bixby', path: '/mobile/one-ui/bixby' },
+              { name: 'Samsung Pay', path: '/mobile/one-ui/samsung-pay' },
+              { name: 'Samsung Health', path: '/mobile/one-ui/samsung-health' },
+              { name: 'Samsung Health Monitor', path: '/mobile/one-ui/samsung-health-monitor'},
+              { name: 'Samsung DeX', path: '/mobile/one-ui/samsung-dex' },
+              { name: 'Samsung Members', path: '/mobile/one-ui/samsung-members' },
+              { name: 'SmartThings', path: '/mobile/one-ui/smartthings' },
+              { name: 'Smart Switch', path: '/mobile/one-ui/smart-switch' }
+            ]
           }, 
           {
             child_item_num: 0,
@@ -1295,49 +2228,120 @@ function HeaderlgMenu (props) {
             child_item_num: 9,
             item: 'Featured',
             show_child_items: false,
-            child_items: ['Galaxy Bespoke', 'Galaxy Z Flip3 5G', 'Galaxy Z Fold3 5G', 'Galaxy S21 Ultra 5G', 'Galaxy S21| S21 + 5G', 'Galaxy A52s 5G', 'Galaxy Watch4', 'Galaxy Watch4 Classic', 'Galaxy Buds2']
+            child_items: [
+              { name: 'Galaxy Bespoke', path: '/galaxy-bespoke' },
+              { name: 'Galaxy Z Flip3 5G', path: '/galaxy-z-flip3-5g' },
+              { name: 'Galaxy Z Fold3 5G', path: '/galaxy-z-fold3-5g'},
+              { name: 'Galaxy S21 Ultra 5G', path: '/galaxy-s21-ultra-5g'},
+              { name: 'Galaxy S21| S21 + 5G', path: '/galaxy-s21-5g'},
+              { name: 'Galaxy A52s 5G', path: '/galaxy-a52s-5g'},
+              { name: 'Galaxy Watch4', path: 'galaxy-watch4'},
+              { name: 'Galaxy Watch4 Classic', path: '/galaxy-watch4-classic'},
+              { name: 'Galaxy Buds2', path: '/galaxy-buds'}
+            ]
           }, 
           {
             child_item_num: 10,
             item: 'Smartphones',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Z', 'Galaxy S', 'Galaxy A', 'Galaxy M', 'Phone Contracts', 'Accessories', 'See All', 'Compare', 'Help Me Choose']
+            child_items: [
+              { name: 'Overview', path: '/mobile/smartphones/overview' },
+              { name: 'Galaxy Z', path: '/mobile/smartphones/galaxy-z' },
+              { name: 'Galaxy S', path: '/mobile/smartphones/galaxy-s' },
+              { name: 'Galaxy A', path: '/mobile/smartphones/galaxy-a' },
+              { name: 'Galaxy M', path: '/mobile/smartphones/galaxy-m' },
+              { name: 'Phone Contracts', path: '/mobile/smartphones/phone-contracts' },
+              { name: 'Accessories', path: '/mobile/smartphones/accessories' },
+              { name: 'See All', path: '/mobile/smartphones/see-all' },
+              { name: 'Compare', path: '/mobile/smartphones/compare' },
+              { name: 'Help Me Choose', path: '/mobile/smartphones/help-me-choose'}
+            ]
           }, 
           {
             child_item_num: 7,
             item: 'Tablets',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Tab S', 'Galaxy Tab A', 'Galaxy Book', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/tablets/overview' },
+              { name: 'Galaxy Tab S', path: '/mobile/tablets/galaxy-tab-s' },
+              { name: 'Galaxy Tab A', path: '/mobile/tablets/galaxy-tab-a' },
+              { name: 'Galaxy Book', path: '/mobile/tablets/galaxy-book' },
+              { name: 'Accessories', path: '/mobile/tablets/accessories' },
+              { name: 'See All', path: '/mobile/tablets/see-all' },
+              { name: 'Compare', path: '/mobile/tablets/compare' }
+            ]
           }, 
           {
             child_item_num: 9,
             item: 'Galaxy Book',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Book Pro 360', 'Galaxy Book Pro', 'Galaxy Book', 'Galaxy Book Go', 'Samsung Chromebook', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/galaxy-book/overview' },
+              { name: 'Galaxy Book Pro 360', path: '/mobile/galaxy-book/galaxy-book-pro360' },
+              { name: 'Galaxy Book Pro', path: '/mobile/galaxy-book/galaxy-book-pro' },
+              { name: 'Galaxy Book', path: '/mobile/galaxy-book/galaxy-book' },
+              { name: 'Galaxy Book Go', path: '/mobile/galaxy-book/galaxy-book-go' },
+              { name: 'Samsung Chromebook', path: '/mobile/galaxy-book/samsung-chromebook' },
+              { name: 'Accessories', path: '/mobile/galaxy-book/accessories' },
+              { name: 'See All', path: '/mobile/galaxy-book/see-all' },
+              { name: 'Compare', path: '/mobile/galaxy-book/compare' }
+            ]
           }, 
           {
             child_item_num: 6,
             item: 'Watches',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Watch', 'Galaxy Watch4 Bespoke Studio', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/watches/overview' },
+              { name: 'Galaxy Watch', path: '/mobile/watches/galaxy-watch' },
+              { name: 'Galaxy Watch4 Bespoke Studio', path: '/mobile/watches/galaxy-watch4-bespoke-studio' },
+              { name: 'Accessories', path: '/mobile/watches/accessories' },
+              { name: 'See All', path: '/mobile/watches/see-all' },
+              { name: 'Compare', path: '/mobile/watches/compare' }
+            ]
           }, 
           {
             child_item_num: 5,
             item: 'Galaxy Buds',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Buds', 'AKG Headphones', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/galaxy-buds/overview' },
+              { name: 'Galaxy Buds', path: '/mobile/galaxy-buds/galaxy-buds' },
+              { name: 'AKG Headphones', path: '/mobile/galaxy-buds/akg-headphones' },
+              { name: 'See All', path: '/mobile/galaxy-buds/see-all' },
+              { name: 'Compare', path: '/mobile/galaxy-buds/compare' }
+            ]
           }, 
           {
             child_item_num: 6,
             item: 'Accessories',
             show_child_items: true,
-            child_items: ['Overview', 'Smartphones Accessories', 'Tablets Accessories', 'Galaxy Book Accessories', 'Watches Accessories', 'See All']
+            child_items: [
+              { name: 'Overview', path: '/mobile/accessories/overview' },
+              { name: 'Smartphones Accessories', path: '/mobile/accessories/smartphones-accessories' },
+              { name: 'Tablets Accessories', path: '/mobile/accessories/tablets-accessories' },
+              { name: 'Galaxy Book Accessories', path: '/mobile/accessories/galaxy-book-accessories' },
+              { name: 'Watches Accessories', path: '/mobile/accessories/watches-accessories' },
+              { name: 'See All', path: '/mobile/accessories/see-all' }
+            ]
           }, 
           {
             child_item_num: 11,
             item: 'One UI',
             show_child_items: false,
-            child_items: ['One UI Overview', 'App & Services Overview', 'Galaxy Store', 'Bixby', 'Samsung Pay', 'Samsung Health', 'Samsung Health Monitor', 'Samsung DeX', 'Samsung Members', 'SmartThings', 'Smart Switch']
+            child_items: [
+              { name: 'One UI Overview', path: '/mobile/one-ui/one-ui-overview' },
+              { name: 'App & Services Overview', path: '/mobile/one-ui/app-services-overview' },
+              { name: 'Galaxy Store', path: '/mobile/one-ui/galaxy-store' },
+              { name: 'Bixby', path: '/mobile/one-ui/bixby' },
+              { name: 'Samsung Pay', path: '/mobile/one-ui/samsung-pay' },
+              { name: 'Samsung Health', path: '/mobile/one-ui/samsung-health' },
+              { name: 'Samsung Health Monitor', path: '/mobile/one-ui/samsung-health-monitor'},
+              { name: 'Samsung DeX', path: '/mobile/one-ui/samsung-dex' },
+              { name: 'Samsung Members', path: '/mobile/one-ui/samsung-members' },
+              { name: 'SmartThings', path: '/mobile/one-ui/smartthings' },
+              { name: 'Smart Switch', path: '/mobile/one-ui/smart-switch' }
+            ]
           }, 
           {
             child_item_num: 0,
@@ -1358,49 +2362,120 @@ function HeaderlgMenu (props) {
             child_item_num: 9,
             item: 'Featured',
             show_child_items: false,
-            child_items: ['Galaxy Bespoke', 'Galaxy Z Flip3 5G', 'Galaxy Z Fold3 5G', 'Galaxy S21 Ultra 5G', 'Galaxy S21| S21 + 5G', 'Galaxy A52s 5G', 'Galaxy Watch4', 'Galaxy Watch4 Classic', 'Galaxy Buds2']
+            child_items: [
+              { name: 'Galaxy Bespoke', path: '/galaxy-bespoke' },
+              { name: 'Galaxy Z Flip3 5G', path: '/galaxy-z-flip3-5g' },
+              { name: 'Galaxy Z Fold3 5G', path: '/galaxy-z-fold3-5g'},
+              { name: 'Galaxy S21 Ultra 5G', path: '/galaxy-s21-ultra-5g'},
+              { name: 'Galaxy S21| S21 + 5G', path: '/galaxy-s21-5g'},
+              { name: 'Galaxy A52s 5G', path: '/galaxy-a52s-5g'},
+              { name: 'Galaxy Watch4', path: 'galaxy-watch4'},
+              { name: 'Galaxy Watch4 Classic', path: '/galaxy-watch4-classic'},
+              { name: 'Galaxy Buds2', path: '/galaxy-buds'}
+            ]
           }, 
           {
             child_item_num: 10,
             item: 'Smartphones',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Z', 'Galaxy S', 'Galaxy A', 'Galaxy M', 'Phone Contracts', 'Accessories', 'See All', 'Compare', 'Help Me Choose']
+            child_items: [
+              { name: 'Overview', path: '/mobile/smartphones/overview' },
+              { name: 'Galaxy Z', path: '/mobile/smartphones/galaxy-z' },
+              { name: 'Galaxy S', path: '/mobile/smartphones/galaxy-s' },
+              { name: 'Galaxy A', path: '/mobile/smartphones/galaxy-a' },
+              { name: 'Galaxy M', path: '/mobile/smartphones/galaxy-m' },
+              { name: 'Phone Contracts', path: '/mobile/smartphones/phone-contracts' },
+              { name: 'Accessories', path: '/mobile/smartphones/accessories' },
+              { name: 'See All', path: '/mobile/smartphones/see-all' },
+              { name: 'Compare', path: '/mobile/smartphones/compare' },
+              { name: 'Help Me Choose', path: '/mobile/smartphones/help-me-choose'}
+            ]
           }, 
           {
             child_item_num: 7,
             item: 'Tablets',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Tab S', 'Galaxy Tab A', 'Galaxy Book', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/tablets/overview' },
+              { name: 'Galaxy Tab S', path: '/mobile/tablets/galaxy-tab-s' },
+              { name: 'Galaxy Tab A', path: '/mobile/tablets/galaxy-tab-a' },
+              { name: 'Galaxy Book', path: '/mobile/tablets/galaxy-book' },
+              { name: 'Accessories', path: '/mobile/tablets/accessories' },
+              { name: 'See All', path: '/mobile/tablets/see-all' },
+              { name: 'Compare', path: '/mobile/tablets/compare' }
+            ]
           }, 
           {
             child_item_num: 9,
             item: 'Galaxy Book',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Book Pro 360', 'Galaxy Book Pro', 'Galaxy Book', 'Galaxy Book Go', 'Samsung Chromebook', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/galaxy-book/overview' },
+              { name: 'Galaxy Book Pro 360', path: '/mobile/galaxy-book/galaxy-book-pro360' },
+              { name: 'Galaxy Book Pro', path: '/mobile/galaxy-book/galaxy-book-pro' },
+              { name: 'Galaxy Book', path: '/mobile/galaxy-book/galaxy-book' },
+              { name: 'Galaxy Book Go', path: '/mobile/galaxy-book/galaxy-book-go' },
+              { name: 'Samsung Chromebook', path: '/mobile/galaxy-book/samsung-chromebook' },
+              { name: 'Accessories', path: '/mobile/galaxy-book/accessories' },
+              { name: 'See All', path: '/mobile/galaxy-book/see-all' },
+              { name: 'Compare', path: '/mobile/galaxy-book/compare' }
+            ]
           }, 
           {
             child_item_num: 6,
             item: 'Watches',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Watch', 'Galaxy Watch4 Bespoke Studio', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/watches/overview' },
+              { name: 'Galaxy Watch', path: '/mobile/watches/galaxy-watch' },
+              { name: 'Galaxy Watch4 Bespoke Studio', path: '/mobile/watches/galaxy-watch4-bespoke-studio' },
+              { name: 'Accessories', path: '/mobile/watches/accessories' },
+              { name: 'See All', path: '/mobile/watches/see-all' },
+              { name: 'Compare', path: '/mobile/watches/compare' }
+            ]
           }, 
           {
             child_item_num: 5,
             item: 'Galaxy Buds',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Buds', 'AKG Headphones', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/galaxy-buds/overview' },
+              { name: 'Galaxy Buds', path: '/mobile/galaxy-buds/galaxy-buds' },
+              { name: 'AKG Headphones', path: '/mobile/galaxy-buds/akg-headphones' },
+              { name: 'See All', path: '/mobile/galaxy-buds/see-all' },
+              { name: 'Compare', path: '/mobile/galaxy-buds/compare' }
+            ]
           }, 
           {
             child_item_num: 6,
             item: 'Accessories',
             show_child_items: false,
-            child_items: ['Overview', 'Smartphones Accessories', 'Tablets Accessories', 'Galaxy Book Accessories', 'Watches Accessories', 'See All']
+            child_items: [
+              { name: 'Overview', path: '/mobile/accessories/overview' },
+              { name: 'Smartphones Accessories', path: '/mobile/accessories/smartphones-accessories' },
+              { name: 'Tablets Accessories', path: '/mobile/accessories/tablets-accessories' },
+              { name: 'Galaxy Book Accessories', path: '/mobile/accessories/galaxy-book-accessories' },
+              { name: 'Watches Accessories', path: '/mobile/accessories/watches-accessories' },
+              { name: 'See All', path: '/mobile/accessories/see-all' }
+            ]
           }, 
           {
             child_item_num: 11,
             item: 'One UI',
             show_child_items: false,
-            child_items: ['One UI Overview', 'App & Services Overview', 'Galaxy Store', 'Bixby', 'Samsung Pay', 'Samsung Health', 'Samsung Health Monitor', 'Samsung DeX', 'Samsung Members', 'SmartThings', 'Smart Switch']
+            child_items: [
+              { name: 'One UI Overview', path: '/mobile/one-ui/one-ui-overview' },
+              { name: 'App & Services Overview', path: '/mobile/one-ui/app-services-overview' },
+              { name: 'Galaxy Store', path: '/mobile/one-ui/galaxy-store' },
+              { name: 'Bixby', path: '/mobile/one-ui/bixby' },
+              { name: 'Samsung Pay', path: '/mobile/one-ui/samsung-pay' },
+              { name: 'Samsung Health', path: '/mobile/one-ui/samsung-health' },
+              { name: 'Samsung Health Monitor', path: '/mobile/one-ui/samsung-health-monitor'},
+              { name: 'Samsung DeX', path: '/mobile/one-ui/samsung-dex' },
+              { name: 'Samsung Members', path: '/mobile/one-ui/samsung-members' },
+              { name: 'SmartThings', path: '/mobile/one-ui/smartthings' },
+              { name: 'Smart Switch', path: '/mobile/one-ui/smart-switch' }
+            ]
           }, 
           {
             child_item_num: 0,
@@ -1423,49 +2498,120 @@ function HeaderlgMenu (props) {
             child_item_num: 9,
             item: 'Featured',
             show_child_items: false,
-            child_items: ['Galaxy Bespoke', 'Galaxy Z Flip3 5G', 'Galaxy Z Fold3 5G', 'Galaxy S21 Ultra 5G', 'Galaxy S21| S21 + 5G', 'Galaxy A52s 5G', 'Galaxy Watch4', 'Galaxy Watch4 Classic', 'Galaxy Buds2']
+            child_items: [
+              { name: 'Galaxy Bespoke', path: '/galaxy-bespoke' },
+              { name: 'Galaxy Z Flip3 5G', path: '/galaxy-z-flip3-5g' },
+              { name: 'Galaxy Z Fold3 5G', path: '/galaxy-z-fold3-5g'},
+              { name: 'Galaxy S21 Ultra 5G', path: '/galaxy-s21-ultra-5g'},
+              { name: 'Galaxy S21| S21 + 5G', path: '/galaxy-s21-5g'},
+              { name: 'Galaxy A52s 5G', path: '/galaxy-a52s-5g'},
+              { name: 'Galaxy Watch4', path: 'galaxy-watch4'},
+              { name: 'Galaxy Watch4 Classic', path: '/galaxy-watch4-classic'},
+              { name: 'Galaxy Buds2', path: '/galaxy-buds'}
+            ]
           }, 
           {
             child_item_num: 10,
             item: 'Smartphones',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Z', 'Galaxy S', 'Galaxy A', 'Galaxy M', 'Phone Contracts', 'Accessories', 'See All', 'Compare', 'Help Me Choose']
+            child_items: [
+              { name: 'Overview', path: '/mobile/smartphones/overview' },
+              { name: 'Galaxy Z', path: '/mobile/smartphones/galaxy-z' },
+              { name: 'Galaxy S', path: '/mobile/smartphones/galaxy-s' },
+              { name: 'Galaxy A', path: '/mobile/smartphones/galaxy-a' },
+              { name: 'Galaxy M', path: '/mobile/smartphones/galaxy-m' },
+              { name: 'Phone Contracts', path: '/mobile/smartphones/phone-contracts' },
+              { name: 'Accessories', path: '/mobile/smartphones/accessories' },
+              { name: 'See All', path: '/mobile/smartphones/see-all' },
+              { name: 'Compare', path: '/mobile/smartphones/compare' },
+              { name: 'Help Me Choose', path: '/mobile/smartphones/help-me-choose'}
+            ]
           }, 
           {
             child_item_num: 7,
             item: 'Tablets',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Tab S', 'Galaxy Tab A', 'Galaxy Book', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/tablets/overview' },
+              { name: 'Galaxy Tab S', path: '/mobile/tablets/galaxy-tab-s' },
+              { name: 'Galaxy Tab A', path: '/mobile/tablets/galaxy-tab-a' },
+              { name: 'Galaxy Book', path: '/mobile/tablets/galaxy-book' },
+              { name: 'Accessories', path: '/mobile/tablets/accessories' },
+              { name: 'See All', path: '/mobile/tablets/see-all' },
+              { name: 'Compare', path: '/mobile/tablets/compare' }
+            ]
           }, 
           {
             child_item_num: 9,
             item: 'Galaxy Book',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Book Pro 360', 'Galaxy Book Pro', 'Galaxy Book', 'Galaxy Book Go', 'Samsung Chromebook', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/galaxy-book/overview' },
+              { name: 'Galaxy Book Pro 360', path: '/mobile/galaxy-book/galaxy-book-pro360' },
+              { name: 'Galaxy Book Pro', path: '/mobile/galaxy-book/galaxy-book-pro' },
+              { name: 'Galaxy Book', path: '/mobile/galaxy-book/galaxy-book' },
+              { name: 'Galaxy Book Go', path: '/mobile/galaxy-book/galaxy-book-go' },
+              { name: 'Samsung Chromebook', path: '/mobile/galaxy-book/samsung-chromebook' },
+              { name: 'Accessories', path: '/mobile/galaxy-book/accessories' },
+              { name: 'See All', path: '/mobile/galaxy-book/see-all' },
+              { name: 'Compare', path: '/mobile/galaxy-book/compare' }
+            ]
           }, 
           {
             child_item_num: 6,
             item: 'Watches',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Watch', 'Galaxy Watch4 Bespoke Studio', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/watches/overview' },
+              { name: 'Galaxy Watch', path: '/mobile/watches/galaxy-watch' },
+              { name: 'Galaxy Watch4 Bespoke Studio', path: '/mobile/watches/galaxy-watch4-bespoke-studio' },
+              { name: 'Accessories', path: '/mobile/watches/accessories' },
+              { name: 'See All', path: '/mobile/watches/see-all' },
+              { name: 'Compare', path: '/mobile/watches/compare' }
+            ]
           }, 
           {
             child_item_num: 5,
             item: 'Galaxy Buds',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Buds', 'AKG Headphones', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/galaxy-buds/overview' },
+              { name: 'Galaxy Buds', path: '/mobile/galaxy-buds/galaxy-buds' },
+              { name: 'AKG Headphones', path: '/mobile/galaxy-buds/akg-headphones' },
+              { name: 'See All', path: '/mobile/galaxy-buds/see-all' },
+              { name: 'Compare', path: '/mobile/galaxy-buds/compare' }
+            ]
           }, 
           {
             child_item_num: 6,
             item: 'Accessories',
             show_child_items: false,
-            child_items: ['Overview', 'Smartphones Accessories', 'Tablets Accessories', 'Galaxy Book Accessories', 'Watches Accessories', 'See All']
+            child_items: [
+              { name: 'Overview', path: '/mobile/accessories/overview' },
+              { name: 'Smartphones Accessories', path: '/mobile/accessories/smartphones-accessories' },
+              { name: 'Tablets Accessories', path: '/mobile/accessories/tablets-accessories' },
+              { name: 'Galaxy Book Accessories', path: '/mobile/accessories/galaxy-book-accessories' },
+              { name: 'Watches Accessories', path: '/mobile/accessories/watches-accessories' },
+              { name: 'See All', path: '/mobile/accessories/see-all' }
+            ]
           }, 
           {
             child_item_num: 11,
             item: 'One UI',
             show_child_items: true,
-            child_items: ['One UI Overview', 'App & Services Overview', 'Galaxy Store', 'Bixby', 'Samsung Pay', 'Samsung Health', 'Samsung Health Monitor', 'Samsung DeX', 'Samsung Members', 'SmartThings', 'Smart Switch']
+            child_items: [
+              { name: 'One UI Overview', path: '/mobile/one-ui/one-ui-overview' },
+              { name: 'App & Services Overview', path: '/mobile/one-ui/app-services-overview' },
+              { name: 'Galaxy Store', path: '/mobile/one-ui/galaxy-store' },
+              { name: 'Bixby', path: '/mobile/one-ui/bixby' },
+              { name: 'Samsung Pay', path: '/mobile/one-ui/samsung-pay' },
+              { name: 'Samsung Health', path: '/mobile/one-ui/samsung-health' },
+              { name: 'Samsung Health Monitor', path: '/mobile/one-ui/samsung-health-monitor'},
+              { name: 'Samsung DeX', path: '/mobile/one-ui/samsung-dex' },
+              { name: 'Samsung Members', path: '/mobile/one-ui/samsung-members' },
+              { name: 'SmartThings', path: '/mobile/one-ui/smartthings' },
+              { name: 'Smart Switch', path: '/mobile/one-ui/smart-switch' }
+            ]
           }, 
           {
             child_item_num: 0,
@@ -1486,49 +2632,120 @@ function HeaderlgMenu (props) {
             child_item_num: 9,
             item: 'Featured',
             show_child_items: false,
-            child_items: ['Galaxy Bespoke', 'Galaxy Z Flip3 5G', 'Galaxy Z Fold3 5G', 'Galaxy S21 Ultra 5G', 'Galaxy S21| S21 + 5G', 'Galaxy A52s 5G', 'Galaxy Watch4', 'Galaxy Watch4 Classic', 'Galaxy Buds2']
+            child_items: [
+              { name: 'Galaxy Bespoke', path: '/galaxy-bespoke' },
+              { name: 'Galaxy Z Flip3 5G', path: '/galaxy-z-flip3-5g' },
+              { name: 'Galaxy Z Fold3 5G', path: '/galaxy-z-fold3-5g'},
+              { name: 'Galaxy S21 Ultra 5G', path: '/galaxy-s21-ultra-5g'},
+              { name: 'Galaxy S21| S21 + 5G', path: '/galaxy-s21-5g'},
+              { name: 'Galaxy A52s 5G', path: '/galaxy-a52s-5g'},
+              { name: 'Galaxy Watch4', path: 'galaxy-watch4'},
+              { name: 'Galaxy Watch4 Classic', path: '/galaxy-watch4-classic'},
+              { name: 'Galaxy Buds2', path: '/galaxy-buds'}
+            ]
           }, 
           {
             child_item_num: 10,
             item: 'Smartphones',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Z', 'Galaxy S', 'Galaxy A', 'Galaxy M', 'Phone Contracts', 'Accessories', 'See All', 'Compare', 'Help Me Choose']
+            child_items: [
+              { name: 'Overview', path: '/mobile/smartphones/overview' },
+              { name: 'Galaxy Z', path: '/mobile/smartphones/galaxy-z' },
+              { name: 'Galaxy S', path: '/mobile/smartphones/galaxy-s' },
+              { name: 'Galaxy A', path: '/mobile/smartphones/galaxy-a' },
+              { name: 'Galaxy M', path: '/mobile/smartphones/galaxy-m' },
+              { name: 'Phone Contracts', path: '/mobile/smartphones/phone-contracts' },
+              { name: 'Accessories', path: '/mobile/smartphones/accessories' },
+              { name: 'See All', path: '/mobile/smartphones/see-all' },
+              { name: 'Compare', path: '/mobile/smartphones/compare' },
+              { name: 'Help Me Choose', path: '/mobile/smartphones/help-me-choose'}
+            ]
           }, 
           {
             child_item_num: 7,
             item: 'Tablets',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Tab S', 'Galaxy Tab A', 'Galaxy Book', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/tablets/overview' },
+              { name: 'Galaxy Tab S', path: '/mobile/tablets/galaxy-tab-s' },
+              { name: 'Galaxy Tab A', path: '/mobile/tablets/galaxy-tab-a' },
+              { name: 'Galaxy Book', path: '/mobile/tablets/galaxy-book' },
+              { name: 'Accessories', path: '/mobile/tablets/accessories' },
+              { name: 'See All', path: '/mobile/tablets/see-all' },
+              { name: 'Compare', path: '/mobile/tablets/compare' }
+            ]
           }, 
           {
             child_item_num: 9,
             item: 'Galaxy Book',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Book Pro 360', 'Galaxy Book Pro', 'Galaxy Book', 'Galaxy Book Go', 'Samsung Chromebook', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/galaxy-book/overview' },
+              { name: 'Galaxy Book Pro 360', path: '/mobile/galaxy-book/galaxy-book-pro360' },
+              { name: 'Galaxy Book Pro', path: '/mobile/galaxy-book/galaxy-book-pro' },
+              { name: 'Galaxy Book', path: '/mobile/galaxy-book/galaxy-book' },
+              { name: 'Galaxy Book Go', path: '/mobile/galaxy-book/galaxy-book-go' },
+              { name: 'Samsung Chromebook', path: '/mobile/galaxy-book/samsung-chromebook' },
+              { name: 'Accessories', path: '/mobile/galaxy-book/accessories' },
+              { name: 'See All', path: '/mobile/galaxy-book/see-all' },
+              { name: 'Compare', path: '/mobile/galaxy-book/compare' }
+            ]
           }, 
           {
             child_item_num: 6,
             item: 'Watches',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Watch', 'Galaxy Watch4 Bespoke Studio', 'Accessories', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/watches/overview' },
+              { name: 'Galaxy Watch', path: '/mobile/watches/galaxy-watch' },
+              { name: 'Galaxy Watch4 Bespoke Studio', path: '/mobile/watches/galaxy-watch4-bespoke-studio' },
+              { name: 'Accessories', path: '/mobile/watches/accessories' },
+              { name: 'See All', path: '/mobile/watches/see-all' },
+              { name: 'Compare', path: '/mobile/watches/compare' }
+            ]
           }, 
           {
             child_item_num: 5,
             item: 'Galaxy Buds',
             show_child_items: false,
-            child_items: ['Overview', 'Galaxy Buds', 'AKG Headphones', 'See All', 'Compare']
+            child_items: [
+              { name: 'Overview', path: '/mobile/galaxy-buds/overview' },
+              { name: 'Galaxy Buds', path: '/mobile/galaxy-buds/galaxy-buds' },
+              { name: 'AKG Headphones', path: '/mobile/galaxy-buds/akg-headphones' },
+              { name: 'See All', path: '/mobile/galaxy-buds/see-all' },
+              { name: 'Compare', path: '/mobile/galaxy-buds/compare' }
+            ]
           }, 
           {
             child_item_num: 6,
             item: 'Accessories',
             show_child_items: false,
-            child_items: ['Overview', 'Smartphones Accessories', 'Tablets Accessories', 'Galaxy Book Accessories', 'Watches Accessories', 'See All']
+            child_items: [
+              { name: 'Overview', path: '/mobile/accessories/overview' },
+              { name: 'Smartphones Accessories', path: '/mobile/accessories/smartphones-accessories' },
+              { name: 'Tablets Accessories', path: '/mobile/accessories/tablets-accessories' },
+              { name: 'Galaxy Book Accessories', path: '/mobile/accessories/galaxy-book-accessories' },
+              { name: 'Watches Accessories', path: '/mobile/accessories/watches-accessories' },
+              { name: 'See All', path: '/mobile/accessories/see-all' }
+            ]
           }, 
           {
             child_item_num: 11,
             item: 'One UI',
             show_child_items: false,
-            child_items: ['One UI Overview', 'App & Services Overview', 'Galaxy Store', 'Bixby', 'Samsung Pay', 'Samsung Health', 'Samsung Health Monitor', 'Samsung DeX', 'Samsung Members', 'SmartThings', 'Smart Switch']
+            child_items: [
+              { name: 'One UI Overview', path: '/mobile/one-ui/one-ui-overview' },
+              { name: 'App & Services Overview', path: '/mobile/one-ui/app-services-overview' },
+              { name: 'Galaxy Store', path: '/mobile/one-ui/galaxy-store' },
+              { name: 'Bixby', path: '/mobile/one-ui/bixby' },
+              { name: 'Samsung Pay', path: '/mobile/one-ui/samsung-pay' },
+              { name: 'Samsung Health', path: '/mobile/one-ui/samsung-health' },
+              { name: 'Samsung Health Monitor', path: '/mobile/one-ui/samsung-health-monitor'},
+              { name: 'Samsung DeX', path: '/mobile/one-ui/samsung-dex' },
+              { name: 'Samsung Members', path: '/mobile/one-ui/samsung-members' },
+              { name: 'SmartThings', path: '/mobile/one-ui/smartthings' },
+              { name: 'Smart Switch', path: '/mobile/one-ui/smart-switch' }
+            ]
           }, 
           {
             child_item_num: 0,
@@ -1545,261 +2762,9 @@ function HeaderlgMenu (props) {
         ]);
       }
     } else if (value.item === 'Galaxy gifts') {
-      if (value.show_child_items === false) {
-        set_mobile_items([
-          {
-            child_item_num: 9,
-            item: 'Featured',
-            show_child_items: false,
-            child_items: ['Galaxy Bespoke', 'Galaxy Z Flip3 5G', 'Galaxy Z Fold3 5G', 'Galaxy S21 Ultra 5G', 'Galaxy S21| S21 + 5G', 'Galaxy A52s 5G', 'Galaxy Watch4', 'Galaxy Watch4 Classic', 'Galaxy Buds2']
-          }, 
-          {
-            child_item_num: 10,
-            item: 'Smartphones',
-            show_child_items: false,
-            child_items: ['Overview', 'Galaxy Z', 'Galaxy S', 'Galaxy A', 'Galaxy M', 'Phone Contracts', 'Accessories', 'See All', 'Compare', 'Help Me Choose']
-          }, 
-          {
-            child_item_num: 7,
-            item: 'Tablets',
-            show_child_items: false,
-            child_items: ['Overview', 'Galaxy Tab S', 'Galaxy Tab A', 'Galaxy Book', 'Accessories', 'See All', 'Compare']
-          }, 
-          {
-            child_item_num: 9,
-            item: 'Galaxy Book',
-            show_child_items: false,
-            child_items: ['Overview', 'Galaxy Book Pro 360', 'Galaxy Book Pro', 'Galaxy Book', 'Galaxy Book Go', 'Samsung Chromebook', 'Accessories', 'See All', 'Compare']
-          }, 
-          {
-            child_item_num: 6,
-            item: 'Watches',
-            show_child_items: false,
-            child_items: ['Overview', 'Galaxy Watch', 'Galaxy Watch4 Bespoke Studio', 'Accessories', 'See All', 'Compare']
-          }, 
-          {
-            child_item_num: 5,
-            item: 'Galaxy Buds',
-            show_child_items: false,
-            child_items: ['Overview', 'Galaxy Buds', 'AKG Headphones', 'See All', 'Compare']
-          }, 
-          {
-            child_item_num: 6,
-            item: 'Accessories',
-            show_child_items: false,
-            child_items: ['Overview', 'Smartphones Accessories', 'Tablets Accessories', 'Galaxy Book Accessories', 'Watches Accessories', 'See All']
-          }, 
-          {
-            child_item_num: 11,
-            item: 'One UI',
-            show_child_items: false,
-            child_items: ['One UI Overview', 'App & Services Overview', 'Galaxy Store', 'Bixby', 'Samsung Pay', 'Samsung Health', 'Samsung Health Monitor', 'Samsung DeX', 'Samsung Members', 'SmartThings', 'Smart Switch']
-          }, 
-          {
-            child_item_num: 0,
-            item: 'Galaxy gifts',
-            show_child_items: true,
-            child_items: []
-          }, 
-          {
-            child_item_num: 0,
-            item: 'Why Galaxy',
-            show_child_items: false,
-            child_items: []
-          }
-        ]);
-      } else if (value.show_child_items === true) {
-        set_mobile_items([
-          {
-            child_item_num: 9,
-            item: 'Featured',
-            show_child_items: false,
-            child_items: ['Galaxy Bespoke', 'Galaxy Z Flip3 5G', 'Galaxy Z Fold3 5G', 'Galaxy S21 Ultra 5G', 'Galaxy S21| S21 + 5G', 'Galaxy A52s 5G', 'Galaxy Watch4', 'Galaxy Watch4 Classic', 'Galaxy Buds2']
-          }, 
-          {
-            child_item_num: 10,
-            item: 'Smartphones',
-            show_child_items: false,
-            child_items: ['Overview', 'Galaxy Z', 'Galaxy S', 'Galaxy A', 'Galaxy M', 'Phone Contracts', 'Accessories', 'See All', 'Compare', 'Help Me Choose']
-          }, 
-          {
-            child_item_num: 7,
-            item: 'Tablets',
-            show_child_items: false,
-            child_items: ['Overview', 'Galaxy Tab S', 'Galaxy Tab A', 'Galaxy Book', 'Accessories', 'See All', 'Compare']
-          }, 
-          {
-            child_item_num: 9,
-            item: 'Galaxy Book',
-            show_child_items: false,
-            child_items: ['Overview', 'Galaxy Book Pro 360', 'Galaxy Book Pro', 'Galaxy Book', 'Galaxy Book Go', 'Samsung Chromebook', 'Accessories', 'See All', 'Compare']
-          }, 
-          {
-            child_item_num: 6,
-            item: 'Watches',
-            show_child_items: false,
-            child_items: ['Overview', 'Galaxy Watch', 'Galaxy Watch4 Bespoke Studio', 'Accessories', 'See All', 'Compare']
-          }, 
-          {
-            child_item_num: 5,
-            item: 'Galaxy Buds',
-            show_child_items: false,
-            child_items: ['Overview', 'Galaxy Buds', 'AKG Headphones', 'See All', 'Compare']
-          }, 
-          {
-            child_item_num: 6,
-            item: 'Accessories',
-            show_child_items: false,
-            child_items: ['Overview', 'Smartphones Accessories', 'Tablets Accessories', 'Galaxy Book Accessories', 'Watches Accessories', 'See All']
-          }, 
-          {
-            child_item_num: 11,
-            item: 'One UI',
-            show_child_items: false,
-            child_items: ['One UI Overview', 'App & Services Overview', 'Galaxy Store', 'Bixby', 'Samsung Pay', 'Samsung Health', 'Samsung Health Monitor', 'Samsung DeX', 'Samsung Members', 'SmartThings', 'Smart Switch']
-          }, 
-          {
-            child_item_num: 0,
-            item: 'Galaxy gifts',
-            show_child_items: false,
-            child_items: []
-          }, 
-          {
-            child_item_num: 0,
-            item: 'Why Galaxy',
-            show_child_items: false,
-            child_items: []
-          }
-        ]);
-      }
+      setVisibleMobileMenu(false);
     } else if (value.item === 'Why Galaxy') {
-      if (value.show_child_items === false) {
-        set_mobile_items([
-          {
-            child_item_num: 9,
-            item: 'Featured',
-            show_child_items: false,
-            child_items: ['Galaxy Bespoke', 'Galaxy Z Flip3 5G', 'Galaxy Z Fold3 5G', 'Galaxy S21 Ultra 5G', 'Galaxy S21| S21 + 5G', 'Galaxy A52s 5G', 'Galaxy Watch4', 'Galaxy Watch4 Classic', 'Galaxy Buds2']
-          }, 
-          {
-            child_item_num: 10,
-            item: 'Smartphones',
-            show_child_items: false,
-            child_items: ['Overview', 'Galaxy Z', 'Galaxy S', 'Galaxy A', 'Galaxy M', 'Phone Contracts', 'Accessories', 'See All', 'Compare', 'Help Me Choose']
-          }, 
-          {
-            child_item_num: 7,
-            item: 'Tablets',
-            show_child_items: false,
-            child_items: ['Overview', 'Galaxy Tab S', 'Galaxy Tab A', 'Galaxy Book', 'Accessories', 'See All', 'Compare']
-          }, 
-          {
-            child_item_num: 9,
-            item: 'Galaxy Book',
-            show_child_items: false,
-            child_items: ['Overview', 'Galaxy Book Pro 360', 'Galaxy Book Pro', 'Galaxy Book', 'Galaxy Book Go', 'Samsung Chromebook', 'Accessories', 'See All', 'Compare']
-          }, 
-          {
-            child_item_num: 6,
-            item: 'Watches',
-            show_child_items: false,
-            child_items: ['Overview', 'Galaxy Watch', 'Galaxy Watch4 Bespoke Studio', 'Accessories', 'See All', 'Compare']
-          }, 
-          {
-            child_item_num: 5,
-            item: 'Galaxy Buds',
-            show_child_items: false,
-            child_items: ['Overview', 'Galaxy Buds', 'AKG Headphones', 'See All', 'Compare']
-          }, 
-          {
-            child_item_num: 6,
-            item: 'Accessories',
-            show_child_items: false,
-            child_items: ['Overview', 'Smartphones Accessories', 'Tablets Accessories', 'Galaxy Book Accessories', 'Watches Accessories', 'See All']
-          }, 
-          {
-            child_item_num: 11,
-            item: 'One UI',
-            show_child_items: false,
-            child_items: ['One UI Overview', 'App & Services Overview', 'Galaxy Store', 'Bixby', 'Samsung Pay', 'Samsung Health', 'Samsung Health Monitor', 'Samsung DeX', 'Samsung Members', 'SmartThings', 'Smart Switch']
-          }, 
-          {
-            child_item_num: 0,
-            item: 'Galaxy gifts',
-            show_child_items: false,
-            child_items: []
-          }, 
-          {
-            child_item_num: 0,
-            item: 'Why Galaxy',
-            show_child_items: true,
-            child_items: []
-          }
-        ]);
-      } else if (value.show_child_items === true) {
-        set_mobile_items([
-          {
-            child_item_num: 9,
-            item: 'Featured',
-            show_child_items: false,
-            child_items: ['Galaxy Bespoke', 'Galaxy Z Flip3 5G', 'Galaxy Z Fold3 5G', 'Galaxy S21 Ultra 5G', 'Galaxy S21| S21 + 5G', 'Galaxy A52s 5G', 'Galaxy Watch4', 'Galaxy Watch4 Classic', 'Galaxy Buds2']
-          }, 
-          {
-            child_item_num: 10,
-            item: 'Smartphones',
-            show_child_items: false,
-            child_items: ['Overview', 'Galaxy Z', 'Galaxy S', 'Galaxy A', 'Galaxy M', 'Phone Contracts', 'Accessories', 'See All', 'Compare', 'Help Me Choose']
-          }, 
-          {
-            child_item_num: 7,
-            item: 'Tablets',
-            show_child_items: false,
-            child_items: ['Overview', 'Galaxy Tab S', 'Galaxy Tab A', 'Galaxy Book', 'Accessories', 'See All', 'Compare']
-          }, 
-          {
-            child_item_num: 9,
-            item: 'Galaxy Book',
-            show_child_items: false,
-            child_items: ['Overview', 'Galaxy Book Pro 360', 'Galaxy Book Pro', 'Galaxy Book', 'Galaxy Book Go', 'Samsung Chromebook', 'Accessories', 'See All', 'Compare']
-          }, 
-          {
-            child_item_num: 6,
-            item: 'Watches',
-            show_child_items: false,
-            child_items: ['Overview', 'Galaxy Watch', 'Galaxy Watch4 Bespoke Studio', 'Accessories', 'See All', 'Compare']
-          }, 
-          {
-            child_item_num: 5,
-            item: 'Galaxy Buds',
-            show_child_items: false,
-            child_items: ['Overview', 'Galaxy Buds', 'AKG Headphones', 'See All', 'Compare']
-          }, 
-          {
-            child_item_num: 6,
-            item: 'Accessories',
-            show_child_items: false,
-            child_items: ['Overview', 'Smartphones Accessories', 'Tablets Accessories', 'Galaxy Book Accessories', 'Watches Accessories', 'See All']
-          }, 
-          {
-            child_item_num: 11,
-            item: 'One UI',
-            show_child_items: false,
-            child_items: ['One UI Overview', 'App & Services Overview', 'Galaxy Store', 'Bixby', 'Samsung Pay', 'Samsung Health', 'Samsung Health Monitor', 'Samsung DeX', 'Samsung Members', 'SmartThings', 'Smart Switch']
-          }, 
-          {
-            child_item_num: 0,
-            item: 'Galaxy gifts',
-            show_child_items: false,
-            child_items: []
-          }, 
-          {
-            child_item_num: 0,
-            item: 'Why Galaxy',
-            show_child_items: false,
-            child_items: []
-          }
-        ]);
-      }
+      setVisibleMobileMenu(false);
     }
   };
 
@@ -1842,7 +2807,9 @@ function HeaderlgMenu (props) {
               v.child_item_num > 0 && v.show_child_items ?
               v.child_items.map((val, id) => (
               <div className="mb-3 responsive-menu-font" key={id}>
-                {val}
+                <Link to={val.path} className="text-dark" onClick={e => handleMobileClick()}>
+                  {val.name}
+                </Link>
               </div>
               ))
               : null
@@ -7851,6 +8818,7 @@ function HeaderlgMenu (props) {
   );
 
   return (
+    <Router>
     <div>
       <div className="show-responsive-menu">
         <div className="row">
@@ -7999,7 +8967,12 @@ function HeaderlgMenu (props) {
           </div>
         </div>
       </div>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/mobile/featured/galaxy-bespoke" element={<GalaxyBespoke />} />
+      </Routes>
     </div>
+    </Router>
   );
 
 }
