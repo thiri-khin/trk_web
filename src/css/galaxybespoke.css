@@ -1,3 +1,19 @@
 .background-gray {
   background-color: #f7f5ed;
 }
+
+@media screen and (max-width: 700px) {
+
+.show-sm { display: block; }
+
+.show-lg { display: none; }
+
+}
+
+@media screen and (min-width: 701px) {
+
+.show-sm { display: none; }
+
+.show-lg { display: block; }
+
+}

@@ -31,6 +31,7 @@ import Support from '../photo/support-menu.jpg';
 import ForBusiness from '../photo/for-business-menu.jpeg';
 import GalaxyBespoke from './galaxyBespoke.jsx';
 import HomePage from './homePage.jsx';
+import GalaxyZFlip35G from './galaxyZFlip35G.jsx';
 import '../css/header.css';
 
 function HeaderlgMenu (props) {
@@ -8970,6 +8971,7 @@ function HeaderlgMenu (props) {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/mobile/featured/galaxy-bespoke" element={<GalaxyBespoke />} />
+        <Route path="/mobile/featured/galaxy-z-flip3-5g" element={<GalaxyZFlip35G />} />
       </Routes>
     </div>
     </Router>
