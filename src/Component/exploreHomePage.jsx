@@ -1,9 +1,12 @@
 import React, {useState} from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { 
+  faCircle
+} from '@fortawesome/free-solid-svg-icons';
 import MaximiseYourSpace from '../photo/minimise-your-space.jpg';
 import Watch from "../photo/watch4.jpg";
 import SamsungKX from '../photo/samsung-kx.png';
 import Upcycling from '../photo/the-art.jpg';
-import Unbox from '../photo/unbox.jpg';
 import '../css/homepage.css';
 
 function ExploreHomePage (props) {
@@ -12,14 +15,12 @@ function ExploreHomePage (props) {
   const [showFashion, setShowFashion] = useState(false);
   const [showSamsungKX, setShowSamsungKX] = useState(false);
   const [showUpcycling, setShowUpcycling] = useState(false);
-  const [showUnbox, setShowUnbox] = useState(false);
 
   let show_maximise = () => {
     setShowMaximise(true);
     setShowFashion(false);
     setShowSamsungKX(false);
     setShowUpcycling(false);
-    setShowUnbox(false);
   };
 
   let show_fashion = () => {
@@ -27,7 +28,6 @@ function ExploreHomePage (props) {
     setShowFashion(true);
     setShowSamsungKX(false);
     setShowUpcycling(false);
-    setShowUnbox(false);
   };
 
   let show_samsungkx = () => {
@@ -35,7 +35,6 @@ function ExploreHomePage (props) {
     setShowFashion(false);
     setShowSamsungKX(true);
     setShowUpcycling(false);
-    setShowUnbox(false);
   };
 
   let show_upcycling = () => {
@@ -43,15 +42,6 @@ function ExploreHomePage (props) {
     setShowFashion(false);
     setShowSamsungKX(false);
     setShowUpcycling(true);
-    setShowUnbox(false);
-  };
-
-  let show_unbox = () => {
-    setShowMaximise(false);
-    setShowFashion(false);
-    setShowSamsungKX(false);
-    setShowUpcycling(false);
-    setShowUnbox(true);
   };
 
   let handle_mouse_out = () => {
@@ -59,7 +49,6 @@ function ExploreHomePage (props) {
     setShowFashion(false);
     setShowSamsungKX(false);
     setShowUpcycling(false);
-    setShowUnbox(false);
   };
 
   return (
@@ -83,9 +72,6 @@ function ExploreHomePage (props) {
         : null }
         { showUpcycling ?
         <img id="myexplore" src={Upcycling} className="w-100 border-rounded" height="600px" />
-        : null }
-        { showUnbox ?
-        <img id="myexplore" src={Unbox} className="w-100 border-rounded" height="600px" />
         : null }
       </div>
       <div className="col-6 vertical-middle show-explore">
@@ -209,36 +195,6 @@ function ExploreHomePage (props) {
           </div>
           : null }
         </div>
-        <div className="row mt-3 mb-3" onMouseOver={() => show_unbox()}
-        onMouseOut={() => handle_mouse_out()}>
-          { showUnbox ?
-          <div className="col-12">
-            <hr className="black-line" />
-          </div>
-          : null }
-          <div className="col-2 text-center large-font font-weight-bold">
-            05
-          </div>
-          <div className="col-10">
-            <div className="larger-font font-weight-bold mb-3">
-              Unbox & Discover
-            </div>
-          </div>
-          <div className="col-2">
-          </div>
-          { showUnbox ?
-          <div className="col-10 mb-2">
-            <a className="text-decoration text-dark">Learn more</a>
-          </div>
-          : null }
-          <div className="col-2">
-          </div>
-          { showUnbox ?
-          <div className="col-10">
-            <hr />
-          </div>
-          : null }
-        </div>
       </div>
       <div className="col-12 show-responsive-explore">
         { showMaximise ?
@@ -285,29 +241,33 @@ function ExploreHomePage (props) {
           </div>
         </div>
         : null }
-        { showUnbox ?
-        <div className="text-center">
-          <img id="myexplore" src={Unbox} className="border-rounded mt-5" width="400px" height="400px" />
-          <div className="larger-font font-weight-bold mb-5 mt-5">
-            Unbox & Discover
-          </div>
-          <div>
-            <a className="text-decoration text-dark">Learn more</a>
-          </div>
-        </div>
-        : null }
         <div className="row mt-5">
-          <div className="col-md-4 col-sm-4 col-3"></div>
-          <div className="col-md-4 col-sm-4 col-6">
-            <div className="dot-option-border">
-              <div className="dot-option float-left" onClick={() => show_maximise()}></div>
-              <div className="dot-option float-left" onClick={() => show_fashion()}></div>
-              <div className="dot-option float-left" onClick={() => show_samsungkx()}></div>
-              <div className="dot-option float-left" onClick={() => show_upcycling()}></div>
-              <div className="dot-option float-left" onClick={() => show_unbox()}></div>
+          <div className="col-md-4 col-sm-4"></div>
+          <div className="col-md-4 col-sm-4">
+            <div className="row dot-option-border">
+              <div className="col-md-3 col-sm-3 col-3 pt-2 text-center">
+                <a className="text-dark" onClick={() => show_maximise()}>
+                  <FontAwesomeIcon icon={faCircle} />
+                </a>
+              </div>
+              <div className="col-md-3 col-sm-3 col-3 pt-2 text-center">
+                <a className="text-dark" onClick={() => show_fashion()}>
+                  <FontAwesomeIcon icon={faCircle} />
+                </a>
+              </div>
+              <div className="col-md-3 col-sm-3 col-3 pt-2 text-center">
+                <a className="text-dark" onClick={() => show_samsungkx()}>
+                  <FontAwesomeIcon icon={faCircle} />
+                </a>
+              </div>
+              <div className="col-md-3 col-sm-3 col-3 pt-2 text-center">
+                <a className="text-dark" onClick={() => show_upcycling()}>
+                  <FontAwesomeIcon icon={faCircle} />
+                </a>
+              </div>
             </div>
           </div>
-          <div className="col-md-4 col-sm-4 col-3"></div>
+          <div className="col-md-4 col-sm-4"></div>
         </div>
       </div>
     </div>

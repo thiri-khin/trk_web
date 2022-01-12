@@ -132,32 +132,6 @@
   border-radius: 30px;
 }
 
-@media screen and (min-width: 771px) {
-.dot-option {
-  margin-top: 14px;
-  margin-left: 30px;
-  width: 10px;
-  height: 10px;
-  background-color: black;
-  border: 1px solid #0c0d0c;
-  border-radius: 50%;
-  cursor: pointer;
-}
-}
-
-@media screen and (max-width: 770px) {
-.dot-option {
-  margin-top: 14px;
-  margin-left: 20px;
-  width: 10px;
-  height: 10px;
-  background-color: black;
-  border: 1px solid #0c0d0c;
-  border-radius: 50%;
-  cursor: pointer;
-}
-}
-
 @media screen and (max-width: 900px) {
 
 .show-responsive-explore { display: block; }

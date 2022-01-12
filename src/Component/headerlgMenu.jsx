@@ -8819,12 +8819,13 @@ function HeaderlgMenu (props) {
   );
 
   return (
-    <Router>
     <div>
       <div className="show-responsive-menu">
         <div className="row">
           <div className="col-1 mt-2">
-            <a src="#"><img src={logo} alt="Logo" width="110" height="50"/></a>
+            <Link to="/">
+              <img src={logo} alt="Logo" width="110" height="50"/>
+            </Link>
           </div>
           <div className="col-7 mt-2 pl-5">
             <Dropdown
@@ -8963,7 +8964,6 @@ function HeaderlgMenu (props) {
                   <FontAwesomeIcon icon={faUser} className="menu-icon-size ml-3 text-dark" />
                 </a>
               </Dropdown>
-              
             </div>
           </div>
         </div>
@@ -8974,7 +8974,6 @@ function HeaderlgMenu (props) {
         <Route path="/mobile/featured/galaxy-z-flip3-5g" element={<GalaxyZFlip35G />} />
       </Routes>
     </div>
-    </Router>
   );
 
 }

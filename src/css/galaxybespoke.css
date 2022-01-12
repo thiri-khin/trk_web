@@ -2,7 +2,21 @@
   background-color: #f7f5ed;
 }
 
+.dot-option-border {
+  height: 40px;
+  border: 1px solid #0c0d0c;
+  border-radius: 30px;
+}
+
 @media screen and (max-width: 700px) {
+
+.bespoke-line-up-lg { display: none; }
+
+.bespoke-line-up-md { display: block; }
+
+.order-lg { display: none; }
+
+.order-md { display: block; }
 
 .show-sm { display: block; }
 
@@ -11,6 +25,14 @@
 }
 
 @media screen and (min-width: 701px) {
+
+.bespoke-line-up-lg { display: block; }
+
+.bespoke-line-up-md { display: none; }
+
+.order-lg { display: block; }
+
+.order-md { display: none; }
 
 .show-sm { display: none; }
 
