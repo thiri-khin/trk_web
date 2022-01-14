@@ -1,0 +1,30 @@
+.h-font {
+  font-size: 2em;
+}
+
+.title-font {
+  font-size: 3em;
+}
+
+.gray-background {
+  background-color: #f5f3f2;
+}
+
+.white-background {
+  background-color: white;
+}
+
+.rounded-border {
+  border: 1px solid white;
+  border-radius: 50px;
+}
+
+.bordered-bottom {
+  border-bottom: 2px solid #55adfa;
+  padding-left: 0px;
+  padding-bottom: 10px;
+}
+
+.footer-font {
+  font-size: 0.8em;
+}

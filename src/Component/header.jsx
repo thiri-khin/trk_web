@@ -552,6 +552,7 @@ function Header (props) {
   const [showexploremenu, setshowexploremenu] = useState(false);
   const [showsupplortmenu, setshowsupportmenu] = useState(false);
   const [showforbusinessmenu, setshowforbusinessmenu] = useState(false);
+  const [showMainMenu, setShowMainMenu] = useState(true);
 
   let display_menu = (item, id) => {
     setshowmenuitems(false);
@@ -8023,9 +8024,14 @@ function Header (props) {
     setshowforbusinessmenu(false);
   };
 
+  let handleSignIn = () => {
+    setShowMainMenu(false);
+  };
+
   return (
     <Router>
     <div>
+      { showMainMenu ?
       <div className="show-responsive-offcanvas">
         <div className="row">
           <Navbar expand={false}>
@@ -8573,9 +8579,9 @@ function Header (props) {
                     ))}
                     <hr className="mx-3" />
                     <div className="mb-4">
-                      <a className="text-dark responsive-menu-font ml-3">
+                      <Link to="/sign-in" className="text-dark responsive-menu-font ml-3" onClick={() => handleSignIn()}>
                         <FontAwesomeIcon icon={faUser} /> Sign In/Sign-Up
-                      </a>
+                      </Link>
                     </div>
                     <div className="mb-4">
                       <a className="text-dark responsive-menu-font ml-3">
@@ -8600,6 +8606,7 @@ function Header (props) {
           </Navbar>
         </div>
       </div>
+      : null }
       <HeaderlgMenu />
     </div>
     </Router>

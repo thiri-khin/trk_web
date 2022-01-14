@@ -31,7 +31,7 @@ import Support from '../photo/support-menu.jpg';
 import ForBusiness from '../photo/for-business-menu.jpeg';
 import GalaxyBespoke from './galaxyBespoke.jsx';
 import HomePage from './homePage.jsx';
-import GalaxyZFlip35G from './galaxyZFlip35G.jsx';
+import SignIn from './signIn.jsx';
 import '../css/header.css';
 
 function HeaderlgMenu (props) {
@@ -561,6 +561,7 @@ function HeaderlgMenu (props) {
   const [visibleExploreMenu, setVisibleExploreMenu] = useState(false);
   const [visibleSupportMenu, setVisibleSupportMenu] = useState(false);
   const [visibleForBusinessMenu, setVisibleForBusinessMenu] = useState(false);
+  const [showMainMenu, setShowMainMenu] = useState(true);
 
   let handleMenuClick = e => {
     if (e.key === '3') {
@@ -572,10 +573,16 @@ function HeaderlgMenu (props) {
     setVisibleSignIn(flag);
   };
 
+  let handleSignIn = () => {
+    setShowMainMenu(false);
+  };
+
   let menusignin = (
     <Menu onClick={handleMenuClick}>
       <Menu.Item key="1">
-        <FontAwesomeIcon icon={faUser} /> Sign In/Sign-Up
+        <Link to="/sign-in" onClick={() => handleSignIn()}>
+          <FontAwesomeIcon icon={faUser} /> Sign In/Sign-Up
+        </Link>
       </Menu.Item>
       <Menu.Item key="2">Orders</Menu.Item>
       <Menu.Item key="3">Product Registration</Menu.Item>
@@ -8818,8 +8825,13 @@ function HeaderlgMenu (props) {
     </div>
   );
 
+  let handleBack = () => {
+    setShowMainMenu(true);
+  };
+
   return (
     <div>
+      { showMainMenu ?
       <div className="show-responsive-menu">
         <div className="row">
           <div className="col-1 mt-2">
@@ -8968,10 +8980,11 @@ function HeaderlgMenu (props) {
           </div>
         </div>
       </div>
+      : null }
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/mobile/featured/galaxy-bespoke" element={<GalaxyBespoke />} />
-        <Route path="/mobile/featured/galaxy-z-flip3-5g" element={<GalaxyZFlip35G />} />
+        <Route path="/sign-in" element={<SignIn handleBack={handleBack} handleSignIn={handleSignIn} />} />
       </Routes>
     </div>
   );
